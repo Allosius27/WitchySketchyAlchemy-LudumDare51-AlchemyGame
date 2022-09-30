@@ -1,0 +1,17 @@
+{
+    "name": "AllosiusDevUtilities",
+    "rootNamespace": "",
+    "references": [
+        "GUID:320c7ca64d0ec4d4697125954d262400",
+        "GUID:4ef6ec8506a793745848727353e4d5c4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

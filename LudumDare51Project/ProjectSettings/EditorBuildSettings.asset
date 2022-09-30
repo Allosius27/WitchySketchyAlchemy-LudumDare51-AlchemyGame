@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/007_Scenes/Menus/BootScene.unity
+    guid: 47bab6c43f4c5c748b654f5264b21a9a
+  - enabled: 1
+    path: Assets/007_Scenes/Menus/TitleScreen.unity
+    guid: f76bfd68ca2ce5f428bb4edbd2a256fe
+  - enabled: 1
+    path: Assets/007_Scenes/Level.unity
+    guid: 32987c4e28ff0f64b8da0f99ba580ce8
+  - enabled: 1
+    path: Assets/007_Scenes/Menus/CreditsScene.unity
+    guid: 395a0cda6e05ddb45aa1b315294820dd
+  m_configObjects: {}

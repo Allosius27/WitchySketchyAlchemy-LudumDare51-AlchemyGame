@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6151fd00d781a7a46a8d4399e32151bc, type: 3}
+  m_Name: Footstep_03 AudioData
+  m_EditorClassIdentifier: 
+  sound:
+    clip: {fileID: 8300000, guid: 1876767bf7cbf284394dc3817af9593c, type: 3}
+    parameters:
+      typeSound: 0
+      volume: 0.367
+      volume3d: 0.367
+      pitch: 1
+      loop: 0
+      priority: 128
+      spacialBlend: 0

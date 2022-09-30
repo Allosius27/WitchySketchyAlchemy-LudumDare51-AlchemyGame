@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9237790db0e91f44ba147b225fdfaa4, type: 3}
+  m_Name: Template PlayerData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Visual: {fileID: 8931638541987077541, guid: 0636a03283e23f149bc24c09911d2284, type: 3}
+  Name: Player
+  _allowDoubleJump: 0
+  _allowDash: 0
+  _allowCrouch: 0
+  _horizontalAcceleration: 120
+  _moveClamp: 14
+  _horizontalDeceleration: 60
+  _apexBonus: 100
+  _allowCreeping: 0
+  _verticalAcceleration: 60
+  _verticalDeceleration: 30
+  ClimbLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _jumpHeight: 35
+  _jumpApexThreshold: 40
+  _coyoteTimeThreshold: 7
+  _jumpBuffer: 7
+  _jumpEndEarlyGravityModifier: 3
+  Notes: 
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 72
+  _detectionRayLength: 0.1
+  collisionRadius: 0.45
+  sideOffset: {x: 0.6, y: 0.6}
+  aboveSideOffset: {x: 0, y: 0.6}
+  _fallClamp: -60
+  _minFallSpeed: 80
+  _maxFallSpeed: 160
+  _groundingForce: -1.5
+  _crouchSizeModifier: 0.5
+  _crouchSpeedModifier: 0.1
+  _crouchSlowdownFrames: 50
+  _immediateCrouchSlowdownThreshold: 0.1
+  _dashPower: 30
+  _dashLength: 6
+  _dashEndHorizontalMultiplier: 0.25
+  _forceDecay: 1
