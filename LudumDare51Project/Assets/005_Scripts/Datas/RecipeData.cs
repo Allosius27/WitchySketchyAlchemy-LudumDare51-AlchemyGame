@@ -19,12 +19,16 @@ public class RecipeData : ScriptableObject
     //[SerializeField] public bool hasNegativeEffect;
     //Define Effect
 
+    [SerializeField] public int scorePointsGained;
+    [SerializeField] public int scorePointsLost;
+    [SerializeField] public int scorePointsBonus;
+
     #endregion
 }
 
-public enum TypeRecipe
+/*public enum TypeRecipe
 {
     RecipeBonus,
     RecipeMalus,
     RecipeNeutral,
-}
+}*/

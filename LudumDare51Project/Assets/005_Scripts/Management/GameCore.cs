@@ -1,4 +1,6 @@
+using AllosiusDevCore;
 using AllosiusDevUtilities;
+using AllosiusDevUtilities.Audio;
 using AllosiusDevUtilities.Utils;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,6 +33,8 @@ public class GameCore : Singleton<GameCore>
 
     private List<MemberCtrl> membersAvailables = new List<MemberCtrl>();
     private List<MemberCtrl> memberTransformed = new List<MemberCtrl>();
+
+    private FeedbacksReader feedbacksReader;
 
     #endregion
 
@@ -68,6 +72,14 @@ public class GameCore : Singleton<GameCore>
     [SerializeField] private List<Sprite> spritesLegsTransformed = new List<Sprite>();
     [SerializeField] private List<Sprite> spritesTorsosTransformed = new List<Sprite>();
 
+    [Space]
+
+    [Required]
+    [SerializeField] private AudioData mainMusic;
+
+    [Required]
+    [SerializeField] private FeedbacksData feedbackGetGoodPotion;
+
 
     #endregion
 
@@ -92,11 +104,15 @@ public class GameCore : Singleton<GameCore>
                 ingredientSlot.gameObject.SetActive(false);
             }
         }
+
+        feedbacksReader = GetComponent<FeedbacksReader>();
     }
 
     private void Start()
     {
         GameCanvasManager.Instance.UpdateMaxTimerBar(initTimer);
+
+        AudioController.Instance.PlayAudio(mainMusic);
     }
 
     private void Update()
@@ -194,11 +210,19 @@ public class GameCore : Singleton<GameCore>
             if(currentRecipeChecked == currentBonusRecipe)
             {
                 // Add Score
+                ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsBonus, currentRecipeChecked.ingredientsRequired.Length);
             }
             else if(currentBonusRecipe == currentMalusRecipe)
             {
                 // Remove Score
+                ScoreManager.Instance.SetMalus(currentRecipeChecked.scorePointsLost);
             }
+            else
+            {
+                ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsGained, currentRecipeChecked.ingredientsRequired.Length);
+            }
+
+            feedbacksReader.ReadFeedback(feedbackGetGoodPotion);
 
             characterController.Drink();
 
@@ -252,9 +276,10 @@ public class GameCore : Singleton<GameCore>
         }
     }
 
-    public void SetCurrentIngredients()
+    public void SetCurrentIngredients(bool resetCauldron = true)
     {
-        cauldron.ResetCauldron();
+        if(resetCauldron)
+            cauldron.ResetCauldron();
 
         List<IngredientData> tempIngredients = new List<IngredientData>();
         for (int i = 0; i < currentBonusRecipe.ingredientsRequired.Length; i++)
@@ -267,7 +292,7 @@ public class GameCore : Singleton<GameCore>
             {
                 IngredientData ingredient = null;
                 int count = 0;
-                while((ingredient == null || ingredient.typeColor != currentBonusRecipe.ingredientsRequired[i].typeColor) && count < 500)
+                while((ingredient == null || ingredient.typeColor != currentBonusRecipe.ingredientsRequired[i].typeColor || ingredient.isPowder) && count < 500)
                 {
                     count++;
                     int colorIngredientIndex = AllosiusDevUtils.RandomGeneration(0, ingredientsLibrary.library.Count);
@@ -279,8 +304,16 @@ public class GameCore : Singleton<GameCore>
         }
         for (int i = currentBonusRecipe.ingredientsRequired.Length; i < ingredientsSlots.Count; i++)
         {
-            int rndIngrendient = AllosiusDevUtils.RandomGeneration(0, ingredientsLibrary.library.Count);
-            tempIngredients.Add((IngredientData)ingredientsLibrary.library[rndIngrendient]);
+            IngredientData ingredient = null;
+            int count = 0;
+            while ((ingredient == null || ingredient.isPowder) && count < 500)
+            {
+                count++;
+                int rndIngrendient = AllosiusDevUtils.RandomGeneration(0, ingredientsLibrary.library.Count);
+                ingredient = (IngredientData)ingredientsLibrary.library[rndIngrendient];
+            }
+            
+            tempIngredients.Add(ingredient);
         }
         tempIngredients = AllosiusDevUtils.RandomizeList(tempIngredients);
 

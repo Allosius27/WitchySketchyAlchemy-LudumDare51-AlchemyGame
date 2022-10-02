@@ -17,3 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de7543ffbb8f16e4d88aa553700923ef, type: 2}
   - {fileID: 11400000, guid: 3258441e26deaac40a4c871fec8326bf, type: 2}
   hasSpecialEffect: 0
+  scorePointsGained: 25
+  scorePointsLost: 300
+  scorePointsBonus: 50

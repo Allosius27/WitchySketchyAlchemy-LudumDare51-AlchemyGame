@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  ingredientSprite: {fileID: 7482667652216324306, guid: 47df184d22987d04c8b6086471e573f1, type: 3}
+  ingredientSprite: {fileID: 21300000, guid: 4009c5c458a6b114b87520050b482bc8, type: 3}
   Name: Poudre Bleue
   typeColor: 0
   isPowder: 1

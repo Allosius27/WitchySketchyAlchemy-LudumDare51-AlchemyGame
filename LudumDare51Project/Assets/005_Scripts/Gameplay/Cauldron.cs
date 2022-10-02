@@ -1,3 +1,5 @@
+using AllosiusDevCore;
+using AllosiusDevUtilities.Audio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +10,8 @@ public class Cauldron : MonoBehaviour
 
     private List<IngredientSlot> currentIngredients = new List<IngredientSlot>();
 
+    private FeedbacksReader feedbacksReader;
+
     #endregion
 
     #region Properties
@@ -16,7 +20,19 @@ public class Cauldron : MonoBehaviour
 
     #endregion
 
+    #region UnityInspector
+
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksUseCauldron;
+
+    #endregion
+
     #region Behaviour
+
+    private void Awake()
+    {
+        feedbacksReader = GetComponent<FeedbacksReader>();
+    }
 
     public void ResetCauldron()
     {
@@ -30,6 +46,8 @@ public class Cauldron : MonoBehaviour
         IngredientSlot ingredientSlot = collision.gameObject.GetComponent<IngredientSlot>();
         if(ingredientSlot != null && ingredientSlot.Draggable.dragging)
         {
+            feedbacksReader.ReadFeedback(feedbacksUseCauldron);
+
             currentIngredients.Add(ingredientSlot);
             ingredientSlot.gameObject.SetActive(false);
         }

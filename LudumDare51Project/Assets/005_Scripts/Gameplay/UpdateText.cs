@@ -11,8 +11,8 @@ public class UpdateText : MonoBehaviour
     {
         int timeScore = 10 - (int)Math.Round(GameCore.Instance.CurrentTimer);
         TextMeshProUGUI textmeshProUGUI = GetComponent<TextMeshProUGUI>();
-        textmeshProUGUI.SetText("+" + (50 * (1 + timeScore)));
-
+        textmeshProUGUI.SetText("+" + ScoreManager.Instance.pointsModifiers);
+        Debug.Log(ScoreManager.Instance.pointsModifiers);
 
     }
 

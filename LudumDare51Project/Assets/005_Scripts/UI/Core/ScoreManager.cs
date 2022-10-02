@@ -1,9 +1,10 @@
+using AllosiusDevUtilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : Singleton<ScoreManager>
 {
     #region Fields
 
@@ -11,12 +12,15 @@ public class ScoreManager : MonoBehaviour
     private RecipeData recipedate;
     public GameObject ScoreFeedback;
     public GameObject MalusFeedback;
-    public GameObject ParentUI;
+    //public GameObject ParentUI;
     public int GetPoints = 50;
     public int GetMalus = 300;
+
     #endregion
 
     #region Properties
+
+    public int pointsModifiers { get; set; }
 
    public int CurrentScore => currentScore;
 
@@ -24,30 +28,43 @@ public class ScoreManager : MonoBehaviour
 
     #region Behaviour
 
-    private void Start()
+    protected override void Awake()
     {
-        SetCurrentScore(0);
+        base.Awake();
     }
 
-    public void SetCurrentScore(int GetPoints)
+    private void Start()
     {
+        SetCurrentScore(0, 1);
+    }
+
+    public void SetCurrentScore(int _GetPoints, int _multiplierPoints = 1)
+    {
+        Debug.Log(_GetPoints);
         int timeScore = 10 - (int)Math.Round(GameCore.Instance.CurrentTimer);
-        currentScore += GetPoints * (1 + timeScore);
+        Debug.Log(timeScore);
+        pointsModifiers = (_GetPoints * (1 + timeScore)) *_multiplierPoints;
+        currentScore += pointsModifiers;
+        Debug.Log(pointsModifiers);
         GameCanvasManager.Instance.UpdateScoreAmount(currentScore);
 
         if (currentScore > 0)
         {
             var myNewScore = Instantiate(ScoreFeedback, new Vector3(1500, 800,0), Quaternion.identity);
-            myNewScore.transform.parent = ParentUI.transform;
+            myNewScore.transform.parent = GameCanvasManager.Instance.transform;
         }
         
     }
 
-    public void SetMalus(int GetMalus)
+    public void SetMalus(int _GetMalus)
     {
+
         if (currentScore > 0)
         { 
-        currentScore -= GetMalus;
+        currentScore -= _GetMalus;
+        pointsModifiers = _GetMalus;
+        Debug.Log(pointsModifiers);
+
         if (currentScore <= 0)
         { currentScore = 0; }
         }
@@ -59,13 +76,8 @@ public class ScoreManager : MonoBehaviour
         if (currentScore > 0)
         {
             var myNewMalus = Instantiate(MalusFeedback, new Vector3(1500, 800, 0), Quaternion.identity);
-            myNewMalus.transform.parent = ParentUI.transform;
+            myNewMalus.transform.parent = GameCanvasManager.Instance.transform;
         }
-    }
-
-    private int Round(float currentTimer)
-    {
-        throw new NotImplementedException();
     }
 
     #endregion
