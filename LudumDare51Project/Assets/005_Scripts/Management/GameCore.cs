@@ -139,10 +139,11 @@ public class GameCore : Singleton<GameCore>
         if(timerActive)
         {
             currentTimer += Time.deltaTime;
-            GameCanvasManager.Instance.UpdateTimerBar(currentTimer);
+            
 
             if(gameInitialized)
             {
+                GameCanvasManager.Instance.UpdateTimerBar(roundTimer - currentTimer);
                 if (currentTimer >= roundTimer)
                 {
                     CheckGoodPotion();
@@ -150,7 +151,8 @@ public class GameCore : Singleton<GameCore>
             }
             else
             {
-                if(currentTimer >= initTimer)
+                GameCanvasManager.Instance.UpdateTimerBar(initTimer - currentTimer);
+                if (currentTimer >= initTimer)
                 {
                     PlayerConversant player = characterController.GetComponent<PlayerConversant>();
                     if(player.CurrentDialog != null)
