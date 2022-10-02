@@ -32,6 +32,10 @@ public class GameCore : Singleton<GameCore>
 
     #region Properties
 
+    public float CurrentTimer => currentTimer;
+
+    public bool TimerActive => TimerActive;
+
     public bool GameEnd => gameEnd;
 
     public bool GameInitialized => gameInitialized;
@@ -203,6 +207,9 @@ public class GameCore : Singleton<GameCore>
             membersAvailables[rndMembers].SetShapeShifting(currentSpriteTransformed, true);
             characterController.Fail();
 
+            GetMemberAvailables();
+            GetMemberTransformed();
+
             if (characterController.CheckStateCharacter() == false)
             {
                 Debug.Log("Game Over");
@@ -249,38 +256,51 @@ public class GameCore : Singleton<GameCore>
         membersAvailables.Clear();
         memberTransformed.Clear();
 
-        if(characterController.headSlot.NaturalState)
+        GetMemberAvailables();
+        GetMemberTransformed();
+    }
+
+    private void GetMemberAvailables()
+    {
+        if (characterController.headSlot.NaturalState)
         {
             membersAvailables.Add(characterController.headSlot);
-        }
-        else
-        {
-            memberTransformed.Add(characterController.headSlot);
         }
 
         if (characterController.armsSlot.NaturalState)
         {
             membersAvailables.Add(characterController.armsSlot);
         }
-        else
-        {
-            memberTransformed.Add(characterController.armsSlot);
-        }
 
         if (characterController.legsSlot.NaturalState)
         {
             membersAvailables.Add(characterController.legsSlot);
-        }
-        else
-        {
-            memberTransformed.Add(characterController.legsSlot);
         }
 
         if (characterController.torsoSlot.NaturalState)
         {
             membersAvailables.Add(characterController.torsoSlot);
         }
-        else
+    }
+
+    private void GetMemberTransformed()
+    {
+        if (!characterController.headSlot.NaturalState)
+        {
+            memberTransformed.Add(characterController.headSlot);
+        }
+
+        if (!characterController.armsSlot.NaturalState)
+        {
+            memberTransformed.Add(characterController.armsSlot);
+        }
+
+        if (!characterController.legsSlot.NaturalState)
+        {
+            memberTransformed.Add(characterController.legsSlot);
+        }
+
+        if (!characterController.torsoSlot.NaturalState)
         {
             memberTransformed.Add(characterController.torsoSlot);
         }
