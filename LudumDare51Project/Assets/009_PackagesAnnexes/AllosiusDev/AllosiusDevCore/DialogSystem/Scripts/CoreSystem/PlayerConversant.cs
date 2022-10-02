@@ -45,9 +45,9 @@ namespace AllosiusDevCore.DialogSystem
 
         #region Behaviour
 
-        private void Awake()
+        private void Start()
         {
-            onConversationUpdated += UICanvasManager.Instance.DialogUi.UpdateUI;
+            onConversationUpdated += GameCanvasManager.Instance.DialogUI.UpdateUI;
 
             canDialog = true;
 
@@ -92,9 +92,10 @@ namespace AllosiusDevCore.DialogSystem
                 return "";
             }
 
-            string playerMessage = LangueManager.Instance.Translate(currentNode.keyText, TypeDictionary.Dialogues, colorCode);
+            //string playerMessage = LangueManager.Instance.Translate(currentNode.keyText, TypeDictionary.Dialogues, colorCode);
 
-            string _text = playerMessage;
+            string _text = currentNode.keyText;
+            /*string _text = playerMessage;
             if (currentNode.texteType == TexteType.Lower)
             {
                 _text = playerMessage.ToLower();
@@ -102,7 +103,7 @@ namespace AllosiusDevCore.DialogSystem
             else if (currentNode.texteType == TexteType.Upper)
             {
                 _text = playerMessage.ToUpper();
-            }
+            }*/
 
             return _text;
         }
@@ -354,6 +355,7 @@ namespace AllosiusDevCore.DialogSystem
             if (currentConversant != null)
             {
                 StartCoroutine(currentConversant.ResetCanTalk());
+                currentConversant.gameObject.SetActive(false);
             }
 
             currentDialog = null;

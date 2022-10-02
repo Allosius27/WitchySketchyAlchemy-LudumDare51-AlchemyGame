@@ -1,4 +1,5 @@
 using AllosiusDevCore;
+using AllosiusDevCore.DialogSystem;
 using AllosiusDevUtilities;
 using AllosiusDevUtilities.Audio;
 using AllosiusDevUtilities.Utils;
@@ -14,6 +15,7 @@ public class GameCore : Singleton<GameCore>
 
     private CharacterController characterController;
     private Cauldron cauldron;
+    private NpcConversant introNpc;
 
     private float currentTimer;
 
@@ -77,10 +79,16 @@ public class GameCore : Singleton<GameCore>
     [Required]
     [SerializeField] private AudioData mainMusic;
 
+    [Space]
+
     [Required]
     [SerializeField] private FeedbacksData feedbackGetGoodPotion;
 
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksBasicPotionSuccess;
 
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksGetBadPotion;
 
 
     #endregion
@@ -93,6 +101,7 @@ public class GameCore : Singleton<GameCore>
 
         characterController = FindObjectOfType<CharacterController>();
         cauldron = FindObjectOfType<Cauldron>();
+        introNpc = FindObjectOfType<NpcConversant>();
 
         timerActive = true;
         
@@ -115,6 +124,9 @@ public class GameCore : Singleton<GameCore>
         GameCanvasManager.Instance.UpdateMaxTimerBar(initTimer);
 
         AudioController.Instance.PlayAudio(mainMusic);
+
+        PlayerConversant player = characterController.GetComponent<PlayerConversant>();
+        introNpc.StartDialog(player);
     }
 
     private void Update()
@@ -140,6 +152,10 @@ public class GameCore : Singleton<GameCore>
             {
                 if(currentTimer >= initTimer)
                 {
+                    PlayerConversant player = characterController.GetComponent<PlayerConversant>();
+                    if(player.CurrentDialog != null)
+                        player.Quit();
+
                     SetCurrentRecipe();
                     ShapeShifting();
                     GameCanvasManager.Instance.UpdateMaxTimerBar(roundTimer);
@@ -213,18 +229,20 @@ public class GameCore : Singleton<GameCore>
             {
                 // Add Score
                 ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsBonus, currentRecipeChecked.ingredientsRequired.Length);
+                feedbacksReader.ReadFeedback(feedbackGetGoodPotion);
             }
             else if(currentBonusRecipe == currentMalusRecipe)
             {
                 // Remove Score
                 ScoreManager.Instance.SetMalus(currentRecipeChecked.scorePointsLost);
+                feedbacksReader.ReadFeedback(feedbacksGetBadPotion);
+                
             }
             else
             {
                 ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsGained, currentRecipeChecked.ingredientsRequired.Length);
+                feedbacksReader.ReadFeedback(feedbacksBasicPotionSuccess);
             }
-
-            feedbacksReader.ReadFeedback(feedbackGetGoodPotion);
 
             characterController.Drink();
 

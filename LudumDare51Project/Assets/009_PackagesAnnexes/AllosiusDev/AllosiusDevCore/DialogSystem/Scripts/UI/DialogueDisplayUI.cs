@@ -57,9 +57,9 @@ namespace AllosiusDevCore.DialogSystem
 
         [SerializeField] private float delayAnimationText = 0.025f;
 
-        [Header("Sounds")]
-        [SerializeField] private AudioData sfxTextWrite;
-        [SerializeField] private AudioData sfxValidate;
+        //[Header("Sounds")]
+        //[SerializeField] private AudioData sfxTextWrite;
+        //[SerializeField] private AudioData sfxValidate;
 
         #endregion
 
@@ -70,6 +70,8 @@ namespace AllosiusDevCore.DialogSystem
             ThisRect = gameObject.GetComponent<RectTransform>();
 
             canInteract = true;
+
+            playerConversant = FindObjectOfType<PlayerConversant>();
         }
 
         private void Start()
@@ -118,7 +120,7 @@ namespace AllosiusDevCore.DialogSystem
                 return;
             }
 
-            ThisRect.sizeDelta = new Vector2(ThisRect.sizeDelta.x, 96f);
+            //ThisRect.sizeDelta = new Vector2(ThisRect.sizeDelta.x, 96f);
 
             dialogueNpcNameText.text = playerConversant.GetCurrentConversantName();
             SetNPCNameWidth(playerConversant.GetCurrentConversantName());
@@ -235,7 +237,7 @@ namespace AllosiusDevCore.DialogSystem
             {
                 if (canTurnNext)
                 {
-                    AudioController.Instance.PlayAudio(sfxValidate);
+                    //AudioController.Instance.PlayAudio(sfxValidate);
                     playerConversant.Next();
 
                     if (animationPassTouchCoroutine != null)
@@ -260,7 +262,7 @@ namespace AllosiusDevCore.DialogSystem
 
         private void ButtonSelectChoice(DialogueTextNode choice)
         {
-            AudioController.Instance.PlayAudio(sfxValidate);
+            //AudioController.Instance.PlayAudio(sfxValidate);
             playerConversant.SelectChoice(choice);
         }
 
@@ -278,7 +280,7 @@ namespace AllosiusDevCore.DialogSystem
 
                 if (_text[i] != ' ')
                 {
-                    AudioController.Instance.PlayAudio(sfxTextWrite);
+                    //AudioController.Instance.PlayAudio(sfxTextWrite);
                 }
 
                 yield return new WaitForSeconds(delayAnimationText);

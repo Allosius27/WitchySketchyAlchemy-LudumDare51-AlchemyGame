@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using AllosiusDevCore.DialogSystem;
 
 public class GameCanvasManager : Singleton<GameCanvasManager>
 {
     #region Properties
 
     public RecipeList RecipeList => recipeList;
+
+    public DialogueDisplayUI DialogUI => dialogUI;
 
     #endregion
 
@@ -23,6 +26,9 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     [Required]
     [SerializeField] private TextMeshProUGUI scoreAmount;
+
+    [Required]
+    [SerializeField] private DialogueDisplayUI dialogUI;
 
     #endregion
 

@@ -41,7 +41,8 @@ namespace AllosiusDevCore.DialogSystem
 
             //dialogNode.messagePreview = EditorGUILayout.TextField("Message Preview", dialogNode.messagePreview);
 
-            string messagePreview = LocalisationManager.GetLocalisedValue(dialogNode.keyText, TypeDictionary.Dialogues, false);
+            //string messagePreview = LocalisationManager.GetLocalisedValue(dialogNode.keyText, TypeDictionary.Dialogues, false);
+            string messagePreview = dialogNode.keyText;
             dialogNode.messagePreview = EditorGUILayout.TextField("Message Preview", messagePreview);
 
             dialogNode.singleRead = EditorGUILayout.Toggle("Single Read", dialogNode.singleRead);
