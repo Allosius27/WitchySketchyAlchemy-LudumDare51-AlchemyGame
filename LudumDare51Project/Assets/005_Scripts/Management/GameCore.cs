@@ -81,6 +81,8 @@ public class GameCore : Singleton<GameCore>
     [SerializeField] private FeedbacksData feedbackGetGoodPotion;
 
 
+
+
     #endregion
 
     #region Behaviour

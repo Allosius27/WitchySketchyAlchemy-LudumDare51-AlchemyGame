@@ -1,9 +1,17 @@
+using AllosiusDevCore;
+using AllosiusDevUtilities.Audio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Mortar : MonoBehaviour
 {
+    #region Fields
+
+    private FeedbacksReader feedbacksReader;
+
+    #endregion
+
     #region UnityInspector
 
     [SerializeField] private IngredientSlot ingredientSlotPrefab;
@@ -12,10 +20,16 @@ public class Mortar : MonoBehaviour
 
     [SerializeField] private Transform createPowderSpawnPoint;
 
+    [SerializeField] private FeedbacksData feedbacksUseMortar;
+
     #endregion
 
     #region Behaviour
 
+    private void Awake()
+    {
+        feedbacksReader = GetComponent<FeedbacksReader>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -43,6 +57,8 @@ public class Mortar : MonoBehaviour
             }
 
             ingredientSlot.gameObject.SetActive(false);
+
+            feedbacksReader.ReadFeedback(feedbacksUseMortar);
         }
     }
 

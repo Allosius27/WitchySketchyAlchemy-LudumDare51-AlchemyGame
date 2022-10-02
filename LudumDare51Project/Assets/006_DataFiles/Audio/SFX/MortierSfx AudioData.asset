@@ -17,7 +17,7 @@ MonoBehaviour:
   pitch: 1
   loop: 0
   priority: 128
-  parameters2d: 0
+  parameters2d: 1
   volume2d: 0.25
   parameters3d: 0
   volume3d: 0.25
