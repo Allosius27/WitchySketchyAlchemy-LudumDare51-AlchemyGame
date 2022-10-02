@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
   m_Name: OeilBiere RecipeData
   m_EditorClassIdentifier: 
-  recipeName: Potion du troisieme oeil
+  recipeName: Potion of the Third Eye
   ingredientsRequired:
   - {fileID: 11400000, guid: df44dc027e215d6479bf7e313237c37a, type: 2}
   - {fileID: 11400000, guid: 1339edd126139c2499007c704d564f29, type: 2}
-  typeRecipe: 0
+  hasSpecialEffect: 0

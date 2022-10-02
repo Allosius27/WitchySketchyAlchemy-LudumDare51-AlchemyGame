@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
   m_Name: OeufPoudre RecipeData
   m_EditorClassIdentifier: 
-  recipeName: Potion du renouveau
+  recipeName: Potion of Renewal
   ingredientsRequired:
   - {fileID: 11400000, guid: e292ff6388bcb84478dbfa23ae3d9688, type: 2}
   - {fileID: 11400000, guid: d17fca4c1c5068c42b3628d668426a6b, type: 2}
-  typeRecipe: 0
+  hasSpecialEffect: 0

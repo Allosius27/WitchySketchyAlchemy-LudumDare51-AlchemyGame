@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
   m_Name: ChampiBierePhenix RecipeData
   m_EditorClassIdentifier: 
-  recipeName: Liqueur de Phenix
+  recipeName: Phoenix's Liquor
   ingredientsRequired:
   - {fileID: 11400000, guid: c97659270c942634f82158ef378ed6d8, type: 2}
   - {fileID: 11400000, guid: eb30e0e145ac83e428b4a13e1d7cd08e, type: 2}
   - {fileID: 11400000, guid: de7543ffbb8f16e4d88aa553700923ef, type: 2}
-  typeRecipe: 0
+  hasSpecialEffect: 0
