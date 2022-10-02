@@ -12,16 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6151fd00d781a7a46a8d4399e32151bc, type: 3}
   m_Name: MainMenuMusic AudioData
   m_EditorClassIdentifier: 
-  sound:
-    clip: {fileID: 8300000, guid: bca8c94adf648684790ace7b7effc8f4, type: 3}
-    parameters:
-      typeSound: 1
-      pitch: 1
-      loop: 1
-      priority: 128
-      parameters2d: 1
-      volume2d: 0.053
-      parameters3d: 0
-      volume3d: 0.053
-      spacialBlend: 0
-      maxDistance: 500
+  clip: {fileID: 8300000, guid: 41bd5560dd6150440be1d925ed59e0ac, type: 3}
+  typeSound: 0
+  pitch: 1
+  loop: 1
+  priority: 128
+  parameters2d: 0
+  volume2d: 0.25
+  parameters3d: 0
+  volume3d: 0.25
+  spacialBlend: 0
+  _maxDistance: 500
