@@ -16,6 +16,8 @@ namespace AllosiusDevCore.DialogSystem
 
         private bool PlayerAround = false;
 
+        private FeedbacksReader feedbacksReader;
+
         #endregion
 
         #region Properties
@@ -34,13 +36,16 @@ namespace AllosiusDevCore.DialogSystem
 
         [SerializeField] private float timeBeforeRelaunchDialogue = 0.5f;
 
+        [Required]
+        [SerializeField] private FeedbacksData feedbacksLaunchDialogue;
+
         #endregion
 
         #region Behaviour
 
         private void Awake()
         {
-            
+           feedbacksReader = GetComponent<FeedbacksReader>();
         }
 
         void OnEnable()
@@ -77,6 +82,7 @@ namespace AllosiusDevCore.DialogSystem
             if(playerConversant.canConvers)
             {
                 Debug.Log("Player Start Dialogue");
+                feedbacksReader.ReadFeedback(feedbacksLaunchDialogue);
                 playerConversant.StartDialog(this, npcDialogue);
             }
             

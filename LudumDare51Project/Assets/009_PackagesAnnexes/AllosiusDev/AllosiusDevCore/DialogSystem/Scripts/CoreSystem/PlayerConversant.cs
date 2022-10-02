@@ -356,7 +356,10 @@ namespace AllosiusDevCore.DialogSystem
             {
                 StartCoroutine(currentConversant.ResetCanTalk());
                 currentConversant.gameObject.SetActive(false);
+                
             }
+
+            GameCore.Instance.InitGame();
 
             currentDialog = null;
 

@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using AllosiusDevCore.DialogSystem;
+using AllosiusDevCore;
+using AllosiusDevUtilities.Core.Menu;
+using AllosiusDevUtilities.Core;
+using AllosiusDevUtilities.Audio;
 
 public class GameCanvasManager : Singleton<GameCanvasManager>
 {
@@ -30,10 +34,22 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
     [Required]
     [SerializeField] private DialogueDisplayUI dialogUI;
 
+    [Required]
+    [SerializeField] private PageController pageController;
+    [Required]
+    [SerializeField] private Page gameOverPage;
+
     #endregion
 
     #region Behaviour
-    
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        dialogUI.gameObject.SetActive(true);
+    }
+
     public void UpdateMaxTimerBar(float value)
     {
         timerBar.maxValue = value;
@@ -71,6 +87,36 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
         {
             GameCore.Instance.SetCurrentIngredients(false, false);
         }
+    }
+
+    public void GameOverMenu()
+    {
+        pageController.TurnPageOn(gameOverPage);
+
+        // Arrêter le temps
+        Time.timeScale = 0;
+        // Changer le statut du jeu (l'état : pause ou jeu actif)
+        GameStateManager.gameIsPaused = true;
+    }
+
+    public void Retry()
+    {
+        Time.timeScale = 1;
+
+        GameStateManager.gameIsPaused = false;
+
+        AudioController.Instance.StopAllMusics();
+
+        SceneLoader.Instance.ActiveLoadingScreen(GameCore.Instance.CurrentSceneData, 1.0f);
+    }
+
+    public void ReturnMainMenu()
+    {
+        Time.timeScale = 1;
+
+        GameStateManager.gameIsPaused = false;
+
+        UICanvasManager.Instance.PauseMenu.LoadMainMenu();
     }
 
     #endregion

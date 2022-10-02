@@ -25,8 +25,6 @@ namespace AllosiusDevCore
 
         public PauseMenu PauseMenu => pauseMenu;
 
-        public DialogueDisplayUI DialogUi => dialogUi;
-
         #endregion
 
         #region UnityInspector
@@ -38,8 +36,6 @@ namespace AllosiusDevCore
         [SerializeField] private SettingsMenu settingsMenu;
 
         [SerializeField] private PauseMenu pauseMenu;
-
-        [SerializeField] private DialogueDisplayUI dialogUi;
 
         #endregion
 

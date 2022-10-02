@@ -71,6 +71,10 @@ namespace AllosiusDevCore
             AudioController.Instance.StopAllAmbients();
             Debug.Log("StopAllAmbients");
 
+            GameCore.ResetInstance();
+            ScoreManager.ResetInstance();
+            GameCanvasManager.ResetInstance();
+
             AsyncOperation operation = SceneManager.LoadSceneAsync((int)(object)_sceneData.sceneToLoad);
 
             while (!operation.isDone)
@@ -85,9 +89,7 @@ namespace AllosiusDevCore
                 {
                     Debug.Log("SceneChanged");
                     AudioController.Instance.StopAllMusics();
-                    GameCore.ResetInstance();
-                    ScoreManager.ResetInstance();
-                    GameCanvasManager.ResetInstance();
+                    
                     operation.allowSceneActivation = false;
                     yield return new WaitForSeconds(3f);
                     operation.allowSceneActivation = true;

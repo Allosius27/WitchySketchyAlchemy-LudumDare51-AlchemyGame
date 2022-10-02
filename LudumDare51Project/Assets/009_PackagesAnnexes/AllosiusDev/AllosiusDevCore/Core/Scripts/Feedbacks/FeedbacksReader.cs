@@ -38,6 +38,11 @@ namespace AllosiusDevCore
 
         public void ReadFeedback(FeedbacksData feedbackToRead, bool _activeEffects = true)
         {
+            if(feedbackToRead.feedbacks.Count <= 0)
+            {
+                return;
+            }
+
             activeEffects = _activeEffects;
             StartCoroutine(feedbackToRead.Execute(this));
         }

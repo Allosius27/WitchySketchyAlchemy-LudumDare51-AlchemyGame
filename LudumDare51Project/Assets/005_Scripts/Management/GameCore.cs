@@ -43,6 +43,8 @@ public class GameCore : Singleton<GameCore>
 
     #region Properties
 
+    public SceneData CurrentSceneData => currentSceneData;
+
     public float CurrentTimer => currentTimer;
 
     public bool TimerActive => TimerActive;
@@ -55,7 +57,10 @@ public class GameCore : Singleton<GameCore>
 
     #region UnityInspector
 
-    [SerializeField] private float initTimer = 5.0f;
+    [Required]
+    [SerializeField] private SceneData currentSceneData;
+
+    //[SerializeField] private float initTimer = 5.0f;
 
     [SerializeField] private float roundTimer = 10.0f;
 
@@ -91,6 +96,9 @@ public class GameCore : Singleton<GameCore>
     [Required]
     [SerializeField] private FeedbacksData feedbacksGetBadPotion;
 
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksGameOver;
+
 
     #endregion
 
@@ -123,7 +131,7 @@ public class GameCore : Singleton<GameCore>
 
     private void Start()
     {
-        GameCanvasManager.Instance.UpdateMaxTimerBar(initTimer);
+        //GameCanvasManager.Instance.UpdateMaxTimerBar(initTimer);
 
         AudioController.Instance.PlayAudio(mainMusic);
 
@@ -151,7 +159,7 @@ public class GameCore : Singleton<GameCore>
                     CheckGoodPotion();
                 }
             }
-            else
+            /*else
             {
                 GameCanvasManager.Instance.UpdateTimerBar(initTimer - currentTimer);
                 if (currentTimer >= initTimer)
@@ -166,8 +174,22 @@ public class GameCore : Singleton<GameCore>
                     gameInitialized = true;
                     currentTimer = 0.0f;
                 }
-            }
+            }*/
         }
+    }
+
+    public void InitGame()
+    {
+        if(gameInitialized)
+        {
+            return;
+        }
+
+        SetCurrentRecipe();
+        ShapeShifting();
+        GameCanvasManager.Instance.UpdateMaxTimerBar(roundTimer);
+        gameInitialized = true;
+        currentTimer = 0.0f;
     }
 
     public void CheckGoodPotion()
@@ -293,9 +315,7 @@ public class GameCore : Singleton<GameCore>
 
             if (characterController.CheckStateCharacter() == false)
             {
-                Debug.Log("Game Over");
-                gameEnd = true;
-                characterController.Die();
+                GameOver();
             }
         }
     }
@@ -402,24 +422,47 @@ public class GameCore : Singleton<GameCore>
         GetMemberTransformed();
     }
 
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+        gameEnd = true;
+        characterController.Die();
+
+        feedbacksReader.ReadFeedback(feedbacksGameOver);
+
+        StartCoroutine(GameOverCoroutine());
+    }
+
+    public void SetGameEnd(bool value)
+    {
+        gameEnd = value;
+    }
+
+    private IEnumerator GameOverCoroutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        GameCanvasManager.Instance.GameOverMenu();
+    }
+
     private void GetMemberAvailables()
     {
-        if (characterController.headSlot.NaturalState)
+        if (characterController.headSlot.NaturalState && membersAvailables.Contains(characterController.headSlot) == false)
         {
             membersAvailables.Add(characterController.headSlot);
         }
 
-        if (characterController.armsSlot.NaturalState)
+        if (characterController.armsSlot.NaturalState && membersAvailables.Contains(characterController.armsSlot) == false)
         {
             membersAvailables.Add(characterController.armsSlot);
         }
 
-        if (characterController.legsSlot.NaturalState)
+        if (characterController.legsSlot.NaturalState && membersAvailables.Contains(characterController.legsSlot) == false)
         {
             membersAvailables.Add(characterController.legsSlot);
         }
 
-        if (characterController.torsoSlot.NaturalState)
+        if (characterController.torsoSlot.NaturalState && membersAvailables.Contains(characterController.torsoSlot) == false)
         {
             membersAvailables.Add(characterController.torsoSlot);
         }
@@ -427,22 +470,22 @@ public class GameCore : Singleton<GameCore>
 
     private void GetMemberTransformed()
     {
-        if (!characterController.headSlot.NaturalState)
+        if (!characterController.headSlot.NaturalState && memberTransformed.Contains(characterController.headSlot) == false)
         {
             memberTransformed.Add(characterController.headSlot);
         }
 
-        if (!characterController.armsSlot.NaturalState)
+        if (!characterController.armsSlot.NaturalState && memberTransformed.Contains(characterController.armsSlot) == false)
         {
             memberTransformed.Add(characterController.armsSlot);
         }
 
-        if (!characterController.legsSlot.NaturalState)
+        if (!characterController.legsSlot.NaturalState && memberTransformed.Contains(characterController.legsSlot) == false)
         {
             memberTransformed.Add(characterController.legsSlot);
         }
 
-        if (!characterController.torsoSlot.NaturalState)
+        if (!characterController.torsoSlot.NaturalState && memberTransformed.Contains(characterController.torsoSlot) == false)
         {
             memberTransformed.Add(characterController.torsoSlot);
         }
