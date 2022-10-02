@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
   m_Name: PhenixMandragore RecipeData
   m_EditorClassIdentifier: 
-  recipeName: PhenixMandragore
+  recipeName: Potion de la racine ardente
   ingredientsRequired:
   - {fileID: 11400000, guid: 453cc0b8d02208847be21a43835cd73d, type: 2}
   - {fileID: 11400000, guid: 65f352af8b33f514384ed79b9eebc919, type: 2}

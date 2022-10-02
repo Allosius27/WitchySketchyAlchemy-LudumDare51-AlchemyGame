@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
-  m_Name: BiereBiereBiere RecipeData
+  m_Name: PoudreOeil RecipeData
   m_EditorClassIdentifier: 
-  recipeName: liqueur de GD
+  recipeName: "Potion du regard cendr\xE9"
   ingredientsRequired:
-  - {fileID: 11400000, guid: eb30e0e145ac83e428b4a13e1d7cd08e, type: 2}
-  - {fileID: 11400000, guid: 97cc986c973b4914c92a3f823462ba7d, type: 2}
-  - {fileID: 11400000, guid: 1339edd126139c2499007c704d564f29, type: 2}
+  - {fileID: 11400000, guid: 132eeabdd5ee54340a8d93c6a947c905, type: 2}
+  - {fileID: 11400000, guid: 7684dbe696dee0845aef0ff7edef6202, type: 2}
   typeRecipe: 0

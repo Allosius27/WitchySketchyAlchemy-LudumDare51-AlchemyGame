@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
-  m_Name: BiereBiereBiere RecipeData
+  m_Name: ChampiOeufOeil RecipeData
   m_EditorClassIdentifier: 
-  recipeName: liqueur de GD
+  recipeName: Potion de transcendance
   ingredientsRequired:
-  - {fileID: 11400000, guid: eb30e0e145ac83e428b4a13e1d7cd08e, type: 2}
-  - {fileID: 11400000, guid: 97cc986c973b4914c92a3f823462ba7d, type: 2}
-  - {fileID: 11400000, guid: 1339edd126139c2499007c704d564f29, type: 2}
+  - {fileID: 11400000, guid: c6fb1f8074a0de045894e87616e23197, type: 2}
+  - {fileID: 11400000, guid: 038706c191b76194ba866baf199797fc, type: 2}
+  - {fileID: 11400000, guid: df44dc027e215d6479bf7e313237c37a, type: 2}
   typeRecipe: 0

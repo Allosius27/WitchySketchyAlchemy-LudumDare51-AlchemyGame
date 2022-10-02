@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625bd05f11f7946479deedf02836b614, type: 3}
-  m_Name: AmaniteJaune IngredientData
+  m_Name: PoudreBleue IngredientData
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,6 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  ingredientSprite: {fileID: 1544507803, guid: 9a295373a9673c24bb9678c2731eb8fb, type: 3}
-  Name: Amanite Jaune
+  ingredientSprite: {fileID: -387622845, guid: 9a295373a9673c24bb9678c2731eb8fb, type: 3}
+  Name: Poudre Bleue
   Notes: 
