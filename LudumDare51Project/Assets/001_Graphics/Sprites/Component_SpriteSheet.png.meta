@@ -104,15 +104,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Component_SpriteSheet_0
+      name: Spr_Beer_Blue
       rect:
         serializedVersion: 2
         x: 375
         y: 567.3334
         width: 239
         height: 283.66666
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -125,15 +125,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_1
+      name: Spr_Egg_Blue
       rect:
         serializedVersion: 2
         x: 696
         y: 563
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,15 +146,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_2
+      name: Spr_Feather_Blue
       rect:
         serializedVersion: 2
         x: 996
         y: 572
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,15 +167,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_4
+      name: Spr_Mandragore_Blue
       rect:
         serializedVersion: 2
         x: 1240
         y: 585
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,15 +188,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_5
+      name: Spr_SpiderEye_Blue
       rect:
         serializedVersion: 2
         x: 1500
         y: 572
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,15 +209,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_6
+      name: Spr_Mushroom_Blue
       rect:
         serializedVersion: 2
         x: 1809
         y: 567.3334
         width: 239
         height: 283.66666
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,15 +230,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_7
+      name: Spr_Beer_Yellow
       rect:
         serializedVersion: 2
         x: 375
         y: 284.33334
         width: 239
         height: 283.66666
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,15 +251,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_8
+      name: Spr_Egg_Yellow
       rect:
         serializedVersion: 2
         x: 696
         y: 280
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,15 +272,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_9
+      name: Spr_Feather_Yellow
       rect:
         serializedVersion: 2
         x: 996
         y: 284
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,15 +293,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_11
+      name: Spr_Mandragore_Yellow
       rect:
         serializedVersion: 2
         x: 1240
         y: 284
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,15 +314,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_12
+      name: Spr_SpiderEye_Yellow
       rect:
         serializedVersion: 2
         x: 1500
         y: 281
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -335,15 +335,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_13
+      name: Spr_Mushroom_Yellow
       rect:
         serializedVersion: 2
         x: 1809
         y: 284.33334
         width: 239
         height: 283.66666
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,15 +356,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_14
+      name: Spr_Beer_Red
       rect:
         serializedVersion: 2
         x: 375
         y: 1.3333435
         width: 239
         height: 283.66666
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -377,15 +377,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_15
+      name: Spr_Egg_Red
       rect:
         serializedVersion: 2
         x: 696
         y: 1
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -398,15 +398,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_16
+      name: Spr_Feather_Red
       rect:
         serializedVersion: 2
         x: 996
         y: 1
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -419,15 +419,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_18
+      name: Spr_Mandragore_Red
       rect:
         serializedVersion: 2
         x: 1249
         y: 1
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -440,15 +440,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_19
+      name: Spr_SpiderEye_Red
       rect:
         serializedVersion: 2
         x: 1500
         y: 1
         width: 239
         height: 284
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -461,15 +461,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Component_SpriteSheet_20
+      name: Spr_Mushroom_Red
       rect:
         serializedVersion: 2
         x: 1809
         y: 1.3333435
         width: 239
         height: 283.66666
-      alignment: 9
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,6 +477,27 @@ TextureImporter:
       bones: []
       spriteID: c5235aee92bd2a24ea29ca54e6ab2fef
       internalID: -1206200371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Component_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 0
+        width: 1750
+        height: 902
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef79db23dad090b4eb6a3679a216c0aa
+      internalID: 43804255
       vertices: []
       indices: 
       edges: []
@@ -492,27 +513,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Component_SpriteSheet_2: 964601086
-      Component_SpriteSheet_19: -1165172728
-      Component_SpriteSheet_15: 1838746066
-      Component_SpriteSheet_12: 1544507803
-      Component_SpriteSheet_11: 722878199
-      Component_SpriteSheet_9: -256081937
-      Component_SpriteSheet_5: -695705860
-      Component_SpriteSheet_1: -1573115674
-      Component_SpriteSheet_8: 1317089314
-      Component_SpriteSheet_0: -387622845
-      Component_SpriteSheet_18: 1004959862
-      Component_SpriteSheet_7: -1600957608
-      Component_SpriteSheet_14: 777287630
-      Component_SpriteSheet_6: 238447880
+      Spr_Egg_Yellow: 1317089314
+      Spr_Feather_Blue: 964601086
+      Spr_SpiderEye_Red: -1165172728
+      Spr_Egg_Blue: -1573115674
+      Spr_Beer_Blue: -387622845
+      Spr_Feather_Red: -37976526
+      Spr_Mushroom_Yellow: -2125248508
+      Spr_Mandragore_Red: 1004959862
+      Spr_Egg_Red: 1838746066
       Component_SpriteSheet_10: -1799278158
-      Component_SpriteSheet_4: 1114306468
-      Component_SpriteSheet_16: -37976526
+      Spr_SpiderEye_Yellow: 1544507803
+      Spr_SpiderEye_Blue: -695705860
+      Spr_Mandragore_Blue: 1114306468
       Component_SpriteSheet_17: 1529588683
       Component_SpriteSheet_3: 43804255
-      Component_SpriteSheet_20: -1206200371
-      Component_SpriteSheet_13: -2125248508
+      Spr_Feather_Yellow: -256081937
+      Spr_Beer_Red: 777287630
+      Spr_Beer_Yellow: -1600957608
+      Spr_Mandragore_Yellow: 722878199
+      Spr_Mushroom_Red: -1206200371
+      Spr_Mushroom_Blue: 238447880
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
