@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
   m_Name: PoudreBiere RecipeData
   m_EditorClassIdentifier: 
-  recipeName: Schtroumpf Beer
+  recipeName: Smurf Beer
   ingredientsRequired:
   - {fileID: 11400000, guid: d17fca4c1c5068c42b3628d668426a6b, type: 2}
   - {fileID: 11400000, guid: 97cc986c973b4914c92a3f823462ba7d, type: 2}

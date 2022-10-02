@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
   m_Name: OeilBierePhenix RecipeData
   m_EditorClassIdentifier: 
-  recipeName: Potion of Reborn
+  recipeName: Potion of Rebirth
   ingredientsRequired:
   - {fileID: 11400000, guid: 3258441e26deaac40a4c871fec8326bf, type: 2}
   - {fileID: 11400000, guid: eb30e0e145ac83e428b4a13e1d7cd08e, type: 2}
