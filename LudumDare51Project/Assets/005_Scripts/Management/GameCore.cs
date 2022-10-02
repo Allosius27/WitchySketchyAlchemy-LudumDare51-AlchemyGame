@@ -16,6 +16,7 @@ public class GameCore : Singleton<GameCore>
     private CharacterController characterController;
     private Cauldron cauldron;
     private NpcConversant introNpc;
+    private Mortar mortar;
 
     private float currentTimer;
 
@@ -102,6 +103,7 @@ public class GameCore : Singleton<GameCore>
         characterController = FindObjectOfType<CharacterController>();
         cauldron = FindObjectOfType<Cauldron>();
         introNpc = FindObjectOfType<NpcConversant>();
+        mortar = FindObjectOfType<Mortar>();
 
         timerActive = true;
         
@@ -298,10 +300,17 @@ public class GameCore : Singleton<GameCore>
         }
     }
 
-    public void SetCurrentIngredients(bool resetCauldron = true)
+    public void SetCurrentIngredients(bool resetCauldron = true, bool resetMortar = true)
     {
-        if(resetCauldron)
+        if (resetCauldron)
+        {
             cauldron.ResetCauldron();
+        }
+
+        if(resetMortar)
+        {
+            mortar.ResetMortar();
+        }
 
         List<IngredientData> tempIngredients = new List<IngredientData>();
         for (int i = 0; i < currentBonusRecipe.ingredientsRequired.Length; i++)

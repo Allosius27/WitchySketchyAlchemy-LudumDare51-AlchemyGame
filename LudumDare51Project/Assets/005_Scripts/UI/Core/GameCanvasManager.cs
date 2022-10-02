@@ -65,5 +65,13 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
         }
     }
 
+    public void NewIngredients()
+    {
+        if (GameCore.Instance.GameEnd == false && GameCore.Instance.GameInitialized)
+        {
+            GameCore.Instance.SetCurrentIngredients(false, false);
+        }
+    }
+
     #endregion
 }

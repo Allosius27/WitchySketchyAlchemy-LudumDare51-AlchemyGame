@@ -10,6 +10,8 @@ public class Mortar : MonoBehaviour
 
     private FeedbacksReader feedbacksReader;
 
+    private List<IngredientSlot> powdersCreated = new List<IngredientSlot>();
+
     #endregion
 
     #region UnityInspector
@@ -31,6 +33,15 @@ public class Mortar : MonoBehaviour
         feedbacksReader = GetComponent<FeedbacksReader>();
     }
 
+    public void ResetMortar()
+    {
+        for (int i = 0; i < powdersCreated.Count; i++)
+        {
+            Destroy(powdersCreated[i].gameObject);
+        }
+        powdersCreated.Clear();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
@@ -42,6 +53,7 @@ public class Mortar : MonoBehaviour
             slot.transform.position = createPowderSpawnPoint.position;
             slot.transform.rotation = Quaternion.identity;
             slot.Init();
+            powdersCreated.Add(slot);
 
             if (ingredientSlot.IngredientDataAssociated.typeColor == TypeColor.Red)
             {
