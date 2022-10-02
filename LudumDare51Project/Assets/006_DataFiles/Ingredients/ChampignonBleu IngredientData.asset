@@ -23,4 +23,6 @@ MonoBehaviour:
     SerializationNodes: []
   ingredientSprite: {fileID: 238447880, guid: 9a295373a9673c24bb9678c2731eb8fb, type: 3}
   Name: Champignon Bleu
+  typeColor: 0
+  isPowder: 0
   Notes: 

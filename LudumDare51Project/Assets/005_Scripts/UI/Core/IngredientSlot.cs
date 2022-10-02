@@ -29,6 +29,9 @@ public class IngredientSlot : MonoBehaviour
     [Required]
     [SerializeField] private SpriteRenderer visual;
 
+    [Required]
+    [SerializeField] private Animator anim;
+
     #endregion
 
     #region Behaviour
@@ -36,6 +39,16 @@ public class IngredientSlot : MonoBehaviour
     private void Awake()
     {
         
+    }
+
+    private void OnMouseDown()
+    {
+        anim.SetBool("isPick", true);
+    }
+
+    private void OnMouseUp()
+    {
+        anim.SetBool("isPick", false);
     }
 
     public void Init()

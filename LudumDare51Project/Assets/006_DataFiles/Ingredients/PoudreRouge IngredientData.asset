@@ -21,6 +21,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  ingredientSprite: {fileID: -387622845, guid: 9a295373a9673c24bb9678c2731eb8fb, type: 3}
+  ingredientSprite: {fileID: 7482667652216324306, guid: 47df184d22987d04c8b6086471e573f1, type: 3}
   Name: Poudre Rouge
+  typeColor: 2
+  isPowder: 1
   Notes: 

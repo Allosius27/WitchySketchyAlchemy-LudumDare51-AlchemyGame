@@ -8,6 +8,12 @@ public class CharacterController : MonoBehaviour
 
     #endregion
 
+    #region Properties
+
+    public GameObject PotionObj => potionObj;
+
+    #endregion
+
     #region UnityInspector
 
     [Required]
@@ -16,9 +22,17 @@ public class CharacterController : MonoBehaviour
     [Required]
     [SerializeField] private Animator anim;
 
+    [Required]
+    [SerializeField] private GameObject potionObj;
+
     #endregion
 
     #region Behaviour
+
+    private void Start()
+    {
+        potionObj.SetActive(false);
+    }
 
     public void Fail()
     {
@@ -27,6 +41,7 @@ public class CharacterController : MonoBehaviour
 
     public void Drink()
     {
+        potionObj.SetActive(true);
         anim.SetTrigger("isRight");
     }
 

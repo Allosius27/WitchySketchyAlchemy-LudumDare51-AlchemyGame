@@ -17,6 +17,9 @@ public class RecipeItem : MonoBehaviour
     #region UnityInspector
 
     [Required]
+    [SerializeField] private TextMeshProUGUI recipeName;
+
+    [Required]
     [SerializeField] private Image[] ingredientsRequiredIcons;
 
     [Required]
@@ -31,6 +34,8 @@ public class RecipeItem : MonoBehaviour
         recipeDataAssociated = newRecipeData;
 
         numberActiveIngredients = 0;
+
+        recipeName.text = newRecipeData.recipeName;
 
         for (int i = 0; i < ingredientsRequiredIcons.Length; i++)
         {

@@ -28,6 +28,12 @@ public class IngredientData : SerializedScriptableObject
     [VerticalGroup(GENERAL_SETTINGS_VERTICAL_GROUP + "/Split/Right")]
     public string Name;
 
+    [BoxGroup(GENERAL_SETTINGS_VERTICAL_GROUP)]
+    public TypeColor typeColor;
+
+    [BoxGroup(GENERAL_SETTINGS_VERTICAL_GROUP)]
+    public bool isPowder;
+
     [VerticalGroup(RIGHT_VERTICAL_GROUP)]
 
     #region Notes
@@ -40,4 +46,11 @@ public class IngredientData : SerializedScriptableObject
     #endregion
 
     #endregion
+}
+
+public enum TypeColor
+{
+    Blue,
+    Yellow,
+    Red,
 }

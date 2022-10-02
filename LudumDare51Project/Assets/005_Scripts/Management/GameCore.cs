@@ -21,7 +21,11 @@ public class GameCore : Singleton<GameCore>
 
     private List<IngredientSlot> ingredientsSlots = new List<IngredientSlot>();
 
-    private RecipeData currentRecipe;
+    private RecipeData currentBonusRecipe;
+    private List<RecipeData> activeRecipes = new List<RecipeData>();
+    private RecipeData currentMalusRecipe;
+
+    private RecipeData currentRecipeChecked;
 
     private Sprite currentSpriteTransformed;
 
@@ -50,11 +54,14 @@ public class GameCore : Singleton<GameCore>
 
     [SerializeField] private Transform ingredientsSlotsParent;
 
+    [SerializeField] private int minRecipesNumber = 2;
+    [SerializeField] private int maxRecipesNumber = 3;
+
     [Space]
 
     [SerializeField] private SamplableLibrary ingredientsLibrary;
 
-    [SerializeField] private List<RecipeData> recipes = new List<RecipeData>();
+    [SerializeField] private SamplableLibrary recipesLibrary;
 
     [SerializeField] private List<Sprite> spritesHeadsTransformed = new List<Sprite>();
     [SerializeField] private List<Sprite> spritesArmsTransformed = new List<Sprite>();
@@ -144,19 +151,30 @@ public class GameCore : Singleton<GameCore>
 
     public bool MixIngredients()
     {
-        if(currentRecipe != null && currentRecipe.ingredientsRequired.Length == cauldron.CurrentIngredients.Count)
+        for (int i = 0; i < activeRecipes.Count; i++)
         {
-            for (int i = 0; i < currentRecipe.ingredientsRequired.Length; i++)
+            if (activeRecipes[i] != null && activeRecipes[i].ingredientsRequired.Length == cauldron.CurrentIngredients.Count)
             {
-                if(cauldron.CurrentIngredients[i].IngredientDataAssociated != currentRecipe.ingredientsRequired[i])
+                bool check = true;
+
+                for (int j = 0; j < activeRecipes[i].ingredientsRequired.Length; j++)
                 {
-                    Debug.Log("false");
-                    return false;
+                    if (cauldron.CurrentIngredients[j].IngredientDataAssociated != activeRecipes[i].ingredientsRequired[j])
+                    {
+                        Debug.Log("false");
+                        check = false;
+                        break;
+                    }
+                }
+
+                if(check)
+                {
+                    Debug.Log("true");
+                    currentRecipeChecked = activeRecipes[i];
+                    return true;
                 }
             }
 
-            Debug.Log("true");
-            return true;
         }
 
         return false;
@@ -164,21 +182,36 @@ public class GameCore : Singleton<GameCore>
 
     public void Heal()
     {
-        if (currentRecipe != null && memberTransformed.Count > 0)
+        if (currentRecipeChecked != null)
         {
-            int rndMembers = AllosiusDevUtils.RandomGeneration(0, memberTransformed.Count);
+            if (memberTransformed.Count > 0)
+            {
+                int rndMembers = AllosiusDevUtils.RandomGeneration(0, memberTransformed.Count);
 
-            memberTransformed[rndMembers].SetShapeShifting(null, false);
+                memberTransformed[rndMembers].SetShapeShifting(null, false);
+            }
+
+            if(currentRecipeChecked == currentBonusRecipe)
+            {
+                // Add Score
+            }
+            else if(currentBonusRecipe == currentMalusRecipe)
+            {
+                // Remove Score
+            }
+
             characterController.Drink();
 
             SetCurrentRecipe();
             currentTimer = 0.0f;
+
+            currentRecipeChecked = null;
         }
     }
 
     public void ShapeShifting()
     {
-        if (currentRecipe != null)
+        if (currentBonusRecipe != null)
         {
             int rndMembers = AllosiusDevUtils.RandomGeneration(0, membersAvailables.Count);
 
@@ -224,11 +257,27 @@ public class GameCore : Singleton<GameCore>
         cauldron.ResetCauldron();
 
         List<IngredientData> tempIngredients = new List<IngredientData>();
-        for (int i = 0; i < currentRecipe.ingredientsRequired.Length; i++)
+        for (int i = 0; i < currentBonusRecipe.ingredientsRequired.Length; i++)
         {
-            tempIngredients.Add(currentRecipe.ingredientsRequired[i]);
+            if (currentBonusRecipe.ingredientsRequired[i].isPowder == false)
+            {
+                tempIngredients.Add(currentBonusRecipe.ingredientsRequired[i]);
+            }
+            else
+            {
+                IngredientData ingredient = null;
+                int count = 0;
+                while((ingredient == null || ingredient.typeColor != currentBonusRecipe.ingredientsRequired[i].typeColor) && count < 500)
+                {
+                    count++;
+                    int colorIngredientIndex = AllosiusDevUtils.RandomGeneration(0, ingredientsLibrary.library.Count);
+                    ingredient = (IngredientData)ingredientsLibrary.library[colorIngredientIndex];
+                }
+                tempIngredients.Add(ingredient);
+            }
+            
         }
-        for (int i = currentRecipe.ingredientsRequired.Length - 1; i < ingredientsSlots.Count; i++)
+        for (int i = currentBonusRecipe.ingredientsRequired.Length; i < ingredientsSlots.Count; i++)
         {
             int rndIngrendient = AllosiusDevUtils.RandomGeneration(0, ingredientsLibrary.library.Count);
             tempIngredients.Add((IngredientData)ingredientsLibrary.library[rndIngrendient]);
@@ -244,11 +293,40 @@ public class GameCore : Singleton<GameCore>
 
     public void SetCurrentRecipe()
     {
-        int rnd = AllosiusDevUtils.RandomGeneration(0, recipes.Count);
-        currentRecipe = recipes[rnd];
+        activeRecipes.Clear();
+
+        int rnd = AllosiusDevUtils.RandomGeneration(0, recipesLibrary.library.Count);
+        currentBonusRecipe = (RecipeData)recipesLibrary.library[rnd];
+
+        activeRecipes.Add(currentBonusRecipe);
+
+        int numberRecipes = AllosiusDevUtils.RandomGeneration(minRecipesNumber, maxRecipesNumber);
+        for (int i = 0; i < numberRecipes; i++)
+        {
+            RecipeData recipe = null;
+            int count = 0;
+
+            while((recipe == null || activeRecipes.Contains(recipe)) && count < 500)
+            {
+                count++;
+                rnd = AllosiusDevUtils.RandomGeneration(0, recipesLibrary.library.Count);
+                recipe = (RecipeData)recipesLibrary.library[rnd];
+            }
+
+            activeRecipes.Add(recipe);
+
+        }
+
+        int rndRecipeMalus = AllosiusDevUtils.RandomGeneration(1, activeRecipes.Count);
+        currentMalusRecipe = activeRecipes[rndRecipeMalus];
 
         GameCanvasManager.Instance.RecipeList.ResetCurrentRecipes();
-        GameCanvasManager.Instance.RecipeList.AddCurrentRecipe(currentRecipe);
+
+        for (int i = 0; i < activeRecipes.Count; i++)
+        {
+            GameCanvasManager.Instance.RecipeList.AddCurrentRecipe(activeRecipes[i]);
+        }
+        
         GameCanvasManager.Instance.RecipeList.SetRecipesList();
 
         SetCurrentIngredients();

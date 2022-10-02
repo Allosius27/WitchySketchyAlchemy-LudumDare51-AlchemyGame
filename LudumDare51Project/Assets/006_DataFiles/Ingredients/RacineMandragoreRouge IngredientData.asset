@@ -23,4 +23,6 @@ MonoBehaviour:
     SerializationNodes: []
   ingredientSprite: {fileID: 1004959862, guid: 9a295373a9673c24bb9678c2731eb8fb, type: 3}
   Name: Racine De Mandragore Rouge
+  typeColor: 2
+  isPowder: 0
   Notes: 

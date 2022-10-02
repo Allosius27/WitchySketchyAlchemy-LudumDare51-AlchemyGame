@@ -11,7 +11,13 @@ public class RecipeData : ScriptableObject
 
     [SerializeField] public IngredientData[] ingredientsRequired;
 
-    [SerializeField] public TypeRecipe typeRecipe;
+    //[SerializeField] public TypeRecipe typeRecipe;
+
+    [SerializeField] public bool hasSpecialEffect;
+    //Define Effect
+
+    //[SerializeField] public bool hasNegativeEffect;
+    //Define Effect
 
     #endregion
 }
@@ -20,4 +26,5 @@ public enum TypeRecipe
 {
     RecipeBonus,
     RecipeMalus,
+    RecipeNeutral,
 }

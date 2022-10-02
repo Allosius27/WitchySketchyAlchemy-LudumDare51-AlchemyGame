@@ -1,3 +1,4 @@
+using AllosiusDevUtilities.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,8 @@ public class RecipeList : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+
+        currentRecipes = AllosiusDevUtils.RandomizeList(currentRecipes);
 
         for (int i = 0; i < currentRecipes.Count; i++)
         {

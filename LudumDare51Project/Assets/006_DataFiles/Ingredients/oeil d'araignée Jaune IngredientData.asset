@@ -23,4 +23,6 @@ MonoBehaviour:
     SerializationNodes: []
   ingredientSprite: {fileID: 1544507803, guid: 9a295373a9673c24bb9678c2731eb8fb, type: 3}
   Name: "oeil d'araign\xE9e Jaune"
+  typeColor: 1
+  isPowder: 0
   Notes: 
