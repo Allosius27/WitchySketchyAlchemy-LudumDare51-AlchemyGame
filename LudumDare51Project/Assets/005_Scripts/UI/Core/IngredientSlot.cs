@@ -18,6 +18,8 @@ public class IngredientSlot : MonoBehaviour
 
     #region Properties
 
+    public IngredientData IngredientDataAssociated => ingredientDataAssociated;
+
     public Draggable Draggable => draggable;
 
     #endregion

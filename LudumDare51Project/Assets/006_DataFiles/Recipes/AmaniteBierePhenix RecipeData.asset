@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
-  m_Name: New RecipeData 1
+  m_Name: AmaniteBierePhenix RecipeData
   m_EditorClassIdentifier: 
-  recipeName: Test1
+  recipeName: AmaniteBierePhenix
   ingredientsRequired:
-  - {fileID: 11400000, guid: c97659270c942634f82158ef378ed6d8, type: 2}
-  - {fileID: 11400000, guid: aeb709746ea054f4dbec290ed23a5d02, type: 2}
+  - {fileID: 11400000, guid: 3258441e26deaac40a4c871fec8326bf, type: 2}
+  - {fileID: 11400000, guid: eb30e0e145ac83e428b4a13e1d7cd08e, type: 2}
+  - {fileID: 11400000, guid: de7543ffbb8f16e4d88aa553700923ef, type: 2}
+  typeRecipe: 0

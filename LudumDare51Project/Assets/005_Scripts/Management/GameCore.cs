@@ -26,6 +26,7 @@ public class GameCore : Singleton<GameCore>
     private Sprite currentSpriteTransformed;
 
     private List<MemberCtrl> membersAvailables = new List<MemberCtrl>();
+    private List<MemberCtrl> memberTransformed = new List<MemberCtrl>();
 
     #endregion
 
@@ -103,9 +104,7 @@ public class GameCore : Singleton<GameCore>
             {
                 if (currentTimer >= roundTimer)
                 {
-                    ShapeShifting();
-                    SetCurrentRecipe();
-                    currentTimer = 0.0f;
+                    CheckGoodPotion();
                 }
             }
             else
@@ -119,6 +118,57 @@ public class GameCore : Singleton<GameCore>
                     currentTimer = 0.0f;
                 }
             }
+        }
+    }
+
+    public void CheckGoodPotion()
+    {
+        if(MixIngredients())
+        {
+            Debug.Log("Good Potion");
+            Heal();
+        }
+        else
+        {
+            Debug.Log("Wrong Potion");
+
+            ShapeShifting();
+            SetCurrentRecipe();
+            currentTimer = 0.0f;
+        }
+    }
+
+    public bool MixIngredients()
+    {
+        if(currentRecipe != null && currentRecipe.ingredientsRequired.Length == cauldron.CurrentIngredients.Count)
+        {
+            for (int i = 0; i < currentRecipe.ingredientsRequired.Length; i++)
+            {
+                if(cauldron.CurrentIngredients[i].IngredientDataAssociated != currentRecipe.ingredientsRequired[i])
+                {
+                    Debug.Log("false");
+                    return false;
+                }
+            }
+
+            Debug.Log("true");
+            return true;
+        }
+
+        return false;
+    }
+
+    public void Heal()
+    {
+        if (currentRecipe != null && memberTransformed.Count > 0)
+        {
+            int rndMembers = AllosiusDevUtils.RandomGeneration(0, memberTransformed.Count);
+
+            memberTransformed[rndMembers].SetShapeShifting(null, false);
+            characterController.Drink();
+
+            SetCurrentRecipe();
+            currentTimer = 0.0f;
         }
     }
 
@@ -197,21 +247,42 @@ public class GameCore : Singleton<GameCore>
         SetCurrentIngredients();
 
         membersAvailables.Clear();
+        memberTransformed.Clear();
+
         if(characterController.headSlot.NaturalState)
         {
             membersAvailables.Add(characterController.headSlot);
         }
+        else
+        {
+            memberTransformed.Add(characterController.headSlot);
+        }
+
         if (characterController.armsSlot.NaturalState)
         {
             membersAvailables.Add(characterController.armsSlot);
         }
+        else
+        {
+            memberTransformed.Add(characterController.armsSlot);
+        }
+
         if (characterController.legsSlot.NaturalState)
         {
             membersAvailables.Add(characterController.legsSlot);
         }
+        else
+        {
+            memberTransformed.Add(characterController.legsSlot);
+        }
+
         if (characterController.torsoSlot.NaturalState)
         {
             membersAvailables.Add(characterController.torsoSlot);
+        }
+        else
+        {
+            memberTransformed.Add(characterController.torsoSlot);
         }
     }
 

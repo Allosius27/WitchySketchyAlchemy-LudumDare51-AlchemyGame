@@ -10,6 +10,12 @@ public class Cauldron : MonoBehaviour
 
     #endregion
 
+    #region Properties
+
+    public List<IngredientSlot> CurrentIngredients => currentIngredients;
+
+    #endregion
+
     #region Behaviour
 
     public void ResetCauldron()
