@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bde4b9f66b4eaa4682275adeb62f6f0, type: 3}
+  m_Name: PoudreMandragoreBierePhenix RecipeData
+  m_EditorClassIdentifier: 
+  recipeName: Odin's Bless
+  ingredientsRequired:
+  - {fileID: 11400000, guid: d17fca4c1c5068c42b3628d668426a6b, type: 2}
+  - {fileID: 11400000, guid: aeb709746ea054f4dbec290ed23a5d02, type: 2}
+  - {fileID: 11400000, guid: 97cc986c973b4914c92a3f823462ba7d, type: 2}
+  - {fileID: 11400000, guid: 453cc0b8d02208847be21a43835cd73d, type: 2}
+  hasSpecialEffect: 0
