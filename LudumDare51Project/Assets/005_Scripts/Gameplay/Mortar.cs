@@ -14,6 +14,12 @@ public class Mortar : MonoBehaviour
 
     #endregion
 
+    #region Properties
+
+    public GameObject SelectableArrowGuide => selectableArrowGuide;
+
+    #endregion
+
     #region UnityInspector
 
     [SerializeField] private IngredientSlot ingredientSlotPrefab;
@@ -21,6 +27,9 @@ public class Mortar : MonoBehaviour
     [SerializeField] private IngredientData redPowderData, bluePowderData, yellowPowderData;
 
     [SerializeField] private Transform createPowderSpawnPoint;
+
+    [Required]
+    [SerializeField] private GameObject selectableArrowGuide;
 
     [SerializeField] private FeedbacksData feedbacksUseMortar;
 
@@ -69,6 +78,9 @@ public class Mortar : MonoBehaviour
             }
 
             ingredientSlot.gameObject.SetActive(false);
+
+            selectableArrowGuide.SetActive(false);
+            GameCore.Instance.Cauldron.SelectableArrowGuide.SetActive(false);
 
             feedbacksReader.ReadFeedback(feedbacksUseMortar);
         }

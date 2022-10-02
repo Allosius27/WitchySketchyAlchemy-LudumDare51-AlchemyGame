@@ -18,12 +18,17 @@ public class Cauldron : MonoBehaviour
 
     public List<IngredientSlot> CurrentIngredients => currentIngredients;
 
+    public GameObject SelectableArrowGuide => selectableArrowGuide;
+
     #endregion
 
     #region UnityInspector
 
     [Required]
     [SerializeField] private FeedbacksData feedbacksUseCauldron;
+
+    [Required]
+    [SerializeField] private GameObject selectableArrowGuide;
 
     #endregion
 
@@ -50,6 +55,9 @@ public class Cauldron : MonoBehaviour
 
             currentIngredients.Add(ingredientSlot);
             ingredientSlot.gameObject.SetActive(false);
+
+            GameCore.Instance.Mortar.SelectableArrowGuide.SetActive(false);
+            selectableArrowGuide.SetActive(false);
         }
     }
 

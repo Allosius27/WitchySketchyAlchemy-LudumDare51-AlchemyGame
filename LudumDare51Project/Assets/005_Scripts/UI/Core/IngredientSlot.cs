@@ -46,9 +46,18 @@ public class IngredientSlot : MonoBehaviour
         anim.SetBool("isPick", true);
     }
 
+    private void OnMouseDrag()
+    {
+        GameCore.Instance.Mortar.SelectableArrowGuide.SetActive(true);
+        GameCore.Instance.Cauldron.SelectableArrowGuide.SetActive(true);
+    }
+
     private void OnMouseUp()
     {
         anim.SetBool("isPick", false);
+
+        GameCore.Instance.Mortar.SelectableArrowGuide.SetActive(false);
+        GameCore.Instance.Cauldron.SelectableArrowGuide.SetActive(false);
     }
 
     public void Init()

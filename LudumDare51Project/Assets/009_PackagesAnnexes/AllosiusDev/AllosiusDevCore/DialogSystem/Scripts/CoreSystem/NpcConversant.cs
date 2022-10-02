@@ -48,6 +48,14 @@ namespace AllosiusDevCore.DialogSystem
            feedbacksReader = GetComponent<FeedbacksReader>();
         }
 
+        private void Start()
+        {
+            Debug.LogError("Init Npc Conversant");
+
+            PlayerConversant player = FindObjectOfType<PlayerConversant>();
+            StartDialog(player);
+        }
+
         void OnEnable()
         {
             Debug.Log("NPC Conversant is active");
@@ -74,17 +82,14 @@ namespace AllosiusDevCore.DialogSystem
 
         public void StartDialog(PlayerConversant playerConversant)
         {
-            if (npcDialogue == null || canTalk == false || playerConversant == null)
+            if (npcDialogue == null || playerConversant == null)
             {
                 return;
             }
 
-            if(playerConversant.canConvers)
-            {
-                Debug.Log("Player Start Dialogue");
-                feedbacksReader.ReadFeedback(feedbacksLaunchDialogue);
-                playerConversant.StartDialog(this, npcDialogue);
-            }
+            Debug.LogError("Player Start Dialogue");
+            feedbacksReader.ReadFeedback(feedbacksLaunchDialogue);
+            playerConversant.StartDialog(this, npcDialogue);
             
         }
 

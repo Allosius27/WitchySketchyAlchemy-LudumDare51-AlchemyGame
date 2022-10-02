@@ -45,6 +45,10 @@ public class GameCore : Singleton<GameCore>
 
     public SceneData CurrentSceneData => currentSceneData;
 
+
+    public Cauldron Cauldron => cauldron;
+    public Mortar Mortar => mortar;
+
     public float CurrentTimer => currentTimer;
 
     public bool TimerActive => TimerActive;
@@ -73,7 +77,8 @@ public class GameCore : Singleton<GameCore>
 
     [SerializeField] private SamplableLibrary ingredientsLibrary;
 
-    [SerializeField] private SamplableLibrary recipesLibrary;
+    //[SerializeField] private SamplableLibrary recipesLibrary;
+    [SerializeField] private List<RecipeData> recipes = new List<RecipeData>();
 
     [SerializeField] private List<Sprite> spritesHeadsTransformed = new List<Sprite>();
     [SerializeField] private List<Sprite> spritesArmsTransformed = new List<Sprite>();
@@ -135,8 +140,6 @@ public class GameCore : Singleton<GameCore>
 
         AudioController.Instance.PlayAudio(mainMusic);
 
-        PlayerConversant player = characterController.GetComponent<PlayerConversant>();
-        introNpc.StartDialog(player);
     }
 
     private void Update()
@@ -379,8 +382,8 @@ public class GameCore : Singleton<GameCore>
     {
         activeRecipes.Clear();
 
-        int rnd = AllosiusDevUtils.RandomGeneration(0, recipesLibrary.library.Count);
-        currentBonusRecipe = (RecipeData)recipesLibrary.library[rnd];
+        int rnd = AllosiusDevUtils.RandomGeneration(0, recipes.Count);
+        currentBonusRecipe = recipes[rnd];
 
         activeRecipes.Add(currentBonusRecipe);
 
@@ -393,8 +396,8 @@ public class GameCore : Singleton<GameCore>
             while((recipe == null || activeRecipes.Contains(recipe)) && count < 500)
             {
                 count++;
-                rnd = AllosiusDevUtils.RandomGeneration(0, recipesLibrary.library.Count);
-                recipe = (RecipeData)recipesLibrary.library[rnd];
+                rnd = AllosiusDevUtils.RandomGeneration(0, recipes.Count);
+                recipe = recipes[rnd];
             }
 
             activeRecipes.Add(recipe);

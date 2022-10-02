@@ -76,7 +76,7 @@ namespace AllosiusDevCore.DialogSystem
 
         private void Start()
         {
-            UpdateUI();
+            //UpdateUI();
         }
 
         private void LateUpdate()
