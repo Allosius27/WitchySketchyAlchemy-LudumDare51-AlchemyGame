@@ -344,10 +344,18 @@ public class GameCore : Singleton<GameCore>
         {
             cauldron.ResetCauldron();
         }
+        else
+        {
+            cauldron.ResetSlotsStockedCauldron();
+        }
 
         if(resetMortar)
         {
             mortar.ResetMortar();
+        }
+        else
+        {
+            mortar.ResetSlotsStockedMortar();
         }
 
         List<IngredientData> tempIngredients = new List<IngredientData>();

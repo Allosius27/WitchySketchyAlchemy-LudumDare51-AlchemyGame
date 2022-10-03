@@ -50,7 +50,7 @@ namespace AllosiusDevCore.DialogSystem
 
         private void Start()
         {
-            Debug.LogError("Init Npc Conversant");
+            Debug.Log("Init Npc Conversant");
 
             PlayerConversant player = FindObjectOfType<PlayerConversant>();
             StartDialog(player);
@@ -87,7 +87,7 @@ namespace AllosiusDevCore.DialogSystem
                 return;
             }
 
-            Debug.LogError("Player Start Dialogue");
+            Debug.Log("Player Start Dialogue");
             feedbacksReader.ReadFeedback(feedbacksLaunchDialogue);
             playerConversant.StartDialog(this, npcDialogue);
             

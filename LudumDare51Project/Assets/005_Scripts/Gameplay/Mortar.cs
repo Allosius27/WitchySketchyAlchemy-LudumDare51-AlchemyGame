@@ -10,6 +10,8 @@ public class Mortar : MonoBehaviour
 
     private FeedbacksReader feedbacksReader;
 
+    private List<IngredientSlot> slotsStocked = new List<IngredientSlot>();
+
     private List<IngredientSlot> powdersCreated = new List<IngredientSlot>();
 
     #endregion
@@ -49,6 +51,17 @@ public class Mortar : MonoBehaviour
             Destroy(powdersCreated[i].gameObject);
         }
         powdersCreated.Clear();
+
+        ResetSlotsStockedMortar();
+    }
+
+    public void ResetSlotsStockedMortar()
+    {
+        for (int i = 0; i < slotsStocked.Count; i++)
+        {
+            slotsStocked[i].IsStocked = false;
+        }
+        slotsStocked.Clear();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -77,6 +90,8 @@ public class Mortar : MonoBehaviour
                 slot.SetIngredientData(bluePowderData);
             }
 
+            slotsStocked.Add(ingredientSlot);
+            ingredientSlot.IsStocked = true;
             ingredientSlot.gameObject.SetActive(false);
 
             selectableArrowGuide.SetActive(false);

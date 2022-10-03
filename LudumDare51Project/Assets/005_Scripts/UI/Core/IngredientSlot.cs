@@ -22,6 +22,8 @@ public class IngredientSlot : MonoBehaviour
 
     public Draggable Draggable => draggable;
 
+    public bool IsStocked { get; set; }
+
     #endregion
 
     #region UnityInspector
@@ -58,6 +60,11 @@ public class IngredientSlot : MonoBehaviour
 
         GameCore.Instance.Mortar.SelectableArrowGuide.SetActive(false);
         GameCore.Instance.Cauldron.SelectableArrowGuide.SetActive(false);
+
+        if(!IsStocked)
+        {
+            ResetPos();
+        }
     }
 
     public void Init()
