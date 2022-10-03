@@ -1398,14 +1398,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1402286952}
     m_Modifications:
-    - target: {fileID: 767958550856236834, guid: 84f81b1b59a2b7549b69622d52896896, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 767958550856236834, guid: 84f81b1b59a2b7549b69622d52896896, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.79
-      objectReference: {fileID: 0}
     - target: {fileID: 1643352268323947261, guid: 84f81b1b59a2b7549b69622d52896896, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.02
@@ -1485,10 +1477,6 @@ PrefabInstance:
     - target: {fileID: 7293631982030993406, guid: 84f81b1b59a2b7549b69622d52896896, type: 3}
       propertyPath: m_Name
       value: Cauldron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7935123019987137164, guid: 84f81b1b59a2b7549b69622d52896896, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.77
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84f81b1b59a2b7549b69622d52896896, type: 3}
