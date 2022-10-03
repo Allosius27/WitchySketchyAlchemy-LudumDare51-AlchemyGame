@@ -44,8 +44,12 @@ MonoBehaviour:
   nextNodes: {fileID: 0}
   identityType: 0
   texteType: 0
-  keyText: Ceci est une explication tutoriel du jeu.
-  messagePreview: Ceci est une explication tutoriel du jeu.
+  keyText: Uh-Oh ! You cast the wrong spell again, Mistress ! It looks like a part
+    of your body will transform into a monster's every 10 seconds !
+  messagePreview: 'Uh-Oh ! You cast the wrong spell again, Mistress !
+
+    It looks
+    like a part of your body will transform into a monster''s every 10 seconds !'
   singleRead: 0
   hasEnterNodeActions: 0
   showEnterNodeActions: 0
@@ -74,6 +78,7 @@ MonoBehaviour:
   nodes:
   - {fileID: -152798887526963724}
   - {fileID: 1270995428140469710}
+  - {fileID: 3265644622849117017}
   displayName: Intro
   description: Intro Tuto
   mainNodeParent: {fileID: 0}
@@ -112,6 +117,74 @@ MonoBehaviour:
       _node: {fileID: 1270995428140469710}
       _typeQualifiedName: AllosiusDevCore.DialogSystem.DialogueBaseNode, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previousNode
+        node: {fileID: 3265644622849117017}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  previousNode: {fileID: 0}
+  nextNodes: {fileID: 0}
+  identityType: 0
+  texteType: 0
+  keyText: Quick ! Make potions from your recipe book, by respecting ingredients
+    order, before you transform entirely into a freak ! Careful though, some potions
+    may have some good side effects, desired or not
+  messagePreview: 'Quick ! Make potions from your recipe book, by respecting ingredients
+    order, before you transform entirely into a freak !
+
+    Careful though, some
+    potions may have some good side effects, desired or not'
+  singleRead: 0
+  hasEnterNodeActions: 0
+  showEnterNodeActions: 0
+  enterNodeActions:
+    actionsList: []
+  hasGameActions: 0
+  showGameActions: 0
+  gameActions:
+    actionsList: []
+  hasRequirements: 0
+  showGameRequirements: 0
+  gameRequirements:
+    requirementsList: []
+--- !u!114 &3265644622849117017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3482daf33a41b424789a150bca26817d, type: 3}
+  m_Name: Dialogue Text
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1240, y: -216}
+  ports:
+    keys:
+    - previousNode
+    - nextNodes
+    values:
+    - _fieldName: previousNode
+      _node: {fileID: 3265644622849117017}
+      _typeQualifiedName: AllosiusDevCore.DialogSystem.DialogueTextNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: nextNodes
+        node: {fileID: 1270995428140469710}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: nextNodes
+      _node: {fileID: 3265644622849117017}
+      _typeQualifiedName: AllosiusDevCore.DialogSystem.DialogueBaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
@@ -121,8 +194,14 @@ MonoBehaviour:
   nextNodes: {fileID: 0}
   identityType: 0
   texteType: 0
-  keyText: "Et ceci en est la 2\xE8me partie"
-  messagePreview: "Et ceci en est la 2\xE8me partie"
+  keyText: Put the ingredients into the cauldron and confirm with the check mark.
+    Reset your cauldron by clicking the trash can. If you need powder, crush the
+    right-colored ingredient in the mortar.
+  messagePreview: 'Put the ingredients into the cauldron and confirm with the check
+    mark. Reset your cauldron by clicking the trash can.
+
+    If you need powder,
+    crush the right-colored ingredient in the mortar.'
   singleRead: 0
   hasEnterNodeActions: 0
   showEnterNodeActions: 0
