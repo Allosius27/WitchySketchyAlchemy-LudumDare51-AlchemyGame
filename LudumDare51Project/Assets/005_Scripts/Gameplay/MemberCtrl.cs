@@ -28,6 +28,13 @@ public class MemberCtrl : MonoBehaviour
 
     #region Behaviour
 
+    private void Update()
+    {
+        defaulVisual.SetActive(naturalState);
+
+        shapeShiftVisual.SetActive(!naturalState);
+    }
+
     public void SetShapeShifting(Sprite spriteMemberTransformed, bool value)
     {
         naturalState = !value;

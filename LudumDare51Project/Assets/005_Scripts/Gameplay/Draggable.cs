@@ -35,7 +35,7 @@ public class Draggable : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if(dragActive == false)
+        if(dragActive == false || GameCore.Instance.GameEnd)
         {
             return;
         }
@@ -46,7 +46,7 @@ public class Draggable : MonoBehaviour
 
     public void OnMouseDrag()
     {
-        if(dragActive == false)
+        if(dragActive == false || GameCore.Instance.GameEnd)
         {
             return;
         }
