@@ -20,6 +20,8 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     public HealthIconsCtrl HealthIconsCtrl => healthIconsCtrl;
 
+    public Transform ScorePoint => scorePoint;
+
     #endregion
 
     #region UnityInspector
@@ -32,6 +34,9 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     [Required]
     [SerializeField] private TextMeshProUGUI scoreAmount;
+
+    [Required]
+    [SerializeField] private Transform scorePoint;
 
     [Required]
     [SerializeField] private DialogueDisplayUI dialogUI;
@@ -97,6 +102,13 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
     public void GameOverMenu()
     {
         pageController.TurnPageOn(gameOverPage);
+
+        StartCoroutine(CoroutineGameOver());
+    }
+
+    private IEnumerator CoroutineGameOver()
+    {
+        yield return new WaitForSeconds(3f);
 
         // Arrêter le temps
         Time.timeScale = 0;

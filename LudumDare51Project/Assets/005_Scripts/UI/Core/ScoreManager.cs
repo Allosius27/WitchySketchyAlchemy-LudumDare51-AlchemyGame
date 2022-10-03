@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
@@ -10,11 +11,6 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private int currentScore;
     private RecipeData recipedate;
-    public GameObject ScoreFeedback;
-    public GameObject MalusFeedback;
-    //public GameObject ParentUI;
-    public int GetPoints = 50;
-    public int GetMalus = 300;
 
     #endregion
 
@@ -22,7 +18,17 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public int pointsModifiers { get; set; }
 
-   public int CurrentScore => currentScore;
+    public int CurrentScore => currentScore;
+
+    #endregion
+
+    #region UnityInspector
+
+    public GameObject ScoreFeedback;
+    public GameObject MalusFeedback;
+    //public GameObject ParentUI;
+    public int GetPoints = 50;
+    public int GetMalus = 300;
 
     #endregion
 
@@ -38,6 +44,7 @@ public class ScoreManager : Singleton<ScoreManager>
         SetCurrentScore(0, 1);
     }
 
+    [Button(ButtonSizes.Large)]
     public void SetCurrentScore(int _GetPoints, int _multiplierPoints = 1)
     {
         Debug.Log(_GetPoints);
@@ -50,12 +57,14 @@ public class ScoreManager : Singleton<ScoreManager>
 
         if (currentScore > 0)
         {
-            var myNewScore = Instantiate(ScoreFeedback, new Vector3(2800, 1700,0), Quaternion.identity);
+            var myNewScore = Instantiate(ScoreFeedback, GameCanvasManager.Instance.ScorePoint.position, Quaternion.identity);
             myNewScore.transform.parent = GameCanvasManager.Instance.transform;
+            myNewScore.GetComponent<PopUpText>().SetPoints(pointsModifiers);
         }
         
     }
 
+    [Button(ButtonSizes.Large)]
     public void SetMalus(int _GetMalus)
     {
 
@@ -75,8 +84,9 @@ public class ScoreManager : Singleton<ScoreManager>
 
         if (currentScore > 0)
         {
-            var myNewMalus = Instantiate(MalusFeedback, new Vector3(3500, 1200, 0), Quaternion.identity);
+            var myNewMalus = Instantiate(MalusFeedback, GameCanvasManager.Instance.ScorePoint.position, Quaternion.identity);
             myNewMalus.transform.parent = GameCanvasManager.Instance.transform;
+            myNewMalus.GetComponent<PopUpText>().SetPoints(-pointsModifiers);
         }
     }
 
