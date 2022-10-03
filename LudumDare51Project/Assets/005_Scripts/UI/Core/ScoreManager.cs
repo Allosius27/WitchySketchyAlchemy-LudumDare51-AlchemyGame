@@ -50,7 +50,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
         if (currentScore > 0)
         {
-            var myNewScore = Instantiate(ScoreFeedback, new Vector3(1500, 800,0), Quaternion.identity);
+            var myNewScore = Instantiate(ScoreFeedback, new Vector3(2800, 1700,0), Quaternion.identity);
             myNewScore.transform.parent = GameCanvasManager.Instance.transform;
         }
         
@@ -75,7 +75,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
         if (currentScore > 0)
         {
-            var myNewMalus = Instantiate(MalusFeedback, new Vector3(1500, 800, 0), Quaternion.identity);
+            var myNewMalus = Instantiate(MalusFeedback, new Vector3(3500, 1200, 0), Quaternion.identity);
             myNewMalus.transform.parent = GameCanvasManager.Instance.transform;
         }
     }
