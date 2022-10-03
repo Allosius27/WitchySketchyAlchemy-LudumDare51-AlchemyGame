@@ -129,12 +129,14 @@ MonoBehaviour:
   nextNodes: {fileID: 0}
   identityType: 0
   texteType: 0
-  keyText: Quick ! Make potions from your recipe book, by respecting ingredients
-    order, before you transform entirely into a freak !                                                  
-    Careful though, some potions may have some good side effects, desired or not
-  messagePreview: Quick ! Make potions from your recipe book, by respecting ingredients
-    order, before you transform entirely into a freak !                                                  
-    Careful though, some potions may have some good side effects, desired or not
+  keyText: Quick ! Brew potions from your recipe book, before you transform entirely
+    into a freak ! Careful though, some potions may have some side effects, desired
+    or not
+  messagePreview: 'Quick ! Brew potions from your recipe book, before you transform
+    entirely into a freak !
+
+    Careful though, some potions may have some side
+    effects, desired or not'
   singleRead: 0
   hasEnterNodeActions: 0
   showEnterNodeActions: 0
@@ -192,14 +194,10 @@ MonoBehaviour:
   nextNodes: {fileID: 0}
   identityType: 0
   texteType: 0
-  keyText: Put the ingredients into the cauldron and confirm with the check mark.
-    Reset your cauldron by clicking the trash can. If you need powder, crush the
-    right-colored ingredient in the mortar.
-  messagePreview: 'Put the ingredients into the cauldron and confirm with the check
-    mark. Reset your cauldron by clicking the trash can.
-
-    If you need powder,
-    crush the right-colored ingredient in the mortar.'
+  keyText: Drag the ingredients and drop them in the cauldron . If you need powder,
+    crush the right-colored ingredient in the mortar.
+  messagePreview: "Drag the ingredients and drop them in the cauldron\r.\nIf you
+    need powder, crush the right-colored ingredient in the mortar."
   singleRead: 0
   hasEnterNodeActions: 0
   showEnterNodeActions: 0
