@@ -28,7 +28,7 @@ MonoBehaviour:
       waitTime: 0
     feedbackPlaySound:
       IsActive: 1
-      audioData: {fileID: 0}
+      audioData: {fileID: 11400000, guid: 33ce7705447cfec428416c1e822280f5, type: 2}
     feedbackInstantiateObject:
       IsActive: 1
       objectToInstantiate: {fileID: 0}

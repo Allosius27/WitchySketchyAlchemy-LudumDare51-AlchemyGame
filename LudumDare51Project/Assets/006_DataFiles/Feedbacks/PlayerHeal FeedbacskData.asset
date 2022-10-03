@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aa7626fd3d23d44e8e847b75899cfa6, type: 3}
-  m_Name: Bubbles FeedbacskData
+  m_Name: PlayerHeal FeedbacskData
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -31,7 +31,7 @@ MonoBehaviour:
       audioData: {fileID: 0}
     feedbackInstantiateObject:
       IsActive: 1
-      objectToInstantiate: {fileID: 1005382684753376403, guid: 1b03f3738af83c84d8c6b23f47a3a39d, type: 3}
+      objectToInstantiate: {fileID: 6679639181839260839, guid: 6ac826a32aeb16748be701ce097bfe7f, type: 3}
       objectPositionOffset: {x: 0, y: 0, z: 0}
     feedbackChangeColorSprite:
       IsActive: 1

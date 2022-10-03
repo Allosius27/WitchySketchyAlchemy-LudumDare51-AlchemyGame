@@ -107,9 +107,6 @@ public class GameCore : Singleton<GameCore>
     [Required]
     [SerializeField] private FeedbacksData feedbacksFailedPotion;
 
-    [Required]
-    [SerializeField] private FeedbacksData feedbacksPlayerShapeShifting;
-
 
     #endregion
 
@@ -286,7 +283,7 @@ public class GameCore : Singleton<GameCore>
                 ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsBonus, currentRecipeChecked.ingredientsRequired.Count);
                 feedbacksReader.ReadFeedback(feedbackGetGoodPotion);
             }
-            else if(currentBonusRecipe == currentMalusRecipe)
+            else if(currentRecipeChecked == currentMalusRecipe)
             {
                 // Remove Score
                 ScoreManager.Instance.SetMalus(currentRecipeChecked.scorePointsLost);
@@ -344,10 +341,12 @@ public class GameCore : Singleton<GameCore>
             membersAvailables[rndMembers].SetShapeShifting(currentSpriteTransformed, true);
             characterController.Fail();
 
+            ScoreManager.Instance.SetMalus(300);
+
             GetMemberAvailables();
             GetMemberTransformed();
 
-            feedbacksReader.ReadFeedback(feedbacksPlayerShapeShifting);
+            characterController.ShapeShifting();
 
             if (characterController.CheckStateCharacter() == false)
             {

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aa7626fd3d23d44e8e847b75899cfa6, type: 3}
-  m_Name: Sparkles health FeedbacskData
+  m_Name: FeedbacksAddScore FeedbacskData
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -31,7 +31,7 @@ MonoBehaviour:
       audioData: {fileID: 0}
     feedbackInstantiateObject:
       IsActive: 1
-      objectToInstantiate: {fileID: 0}
+      objectToInstantiate: {fileID: 2637051982741093850, guid: 3b8c5c0647d1e9249a27bfe29a841e5a, type: 3}
       objectPositionOffset: {x: 0, y: 0, z: 0}
     feedbackChangeColorSprite:
       IsActive: 1

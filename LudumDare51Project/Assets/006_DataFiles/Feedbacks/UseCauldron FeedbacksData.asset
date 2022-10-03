@@ -40,3 +40,37 @@ MonoBehaviour:
       IsActive: 1
       newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
       colorChangeDuration: 0.1
+    feedbackSwitchHumanForm:
+      IsActive: 1
+      humanBodySprite: {fileID: 0}
+      humanLegsSprite: {fileID: 0}
+      humanArmsSprite: {fileID: 0}
+      humanHatSprite: {fileID: 0}
+      humanHeadSprite: {fileID: 0}
+      humanHairSprite: {fileID: 0}
+  - Type: 3
+    feedbackWait:
+      IsActive: 1
+      waitTime: 0
+    feedbackPlaySound:
+      IsActive: 1
+      audioData: {fileID: 0}
+    feedbackInstantiateObject:
+      IsActive: 1
+      objectToInstantiate: {fileID: 5914587831799152908, guid: 254b1ba689097c845848bd5acbdfcad5, type: 3}
+      objectPositionOffset: {x: 0, y: 2, z: 0}
+    feedbackChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+    feedbackTimerChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      colorChangeDuration: 0.1
+    feedbackSwitchHumanForm:
+      IsActive: 1
+      humanBodySprite: {fileID: 0}
+      humanLegsSprite: {fileID: 0}
+      humanArmsSprite: {fileID: 0}
+      humanHatSprite: {fileID: 0}
+      humanHeadSprite: {fileID: 0}
+      humanHairSprite: {fileID: 0}

@@ -16,6 +16,8 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     public RecipeList RecipeList => recipeList;
 
+    //public ScoreUI ScoreUI => scoreUI;
+
     public DialogueDisplayUI DialogUI => dialogUI;
 
     public HealthIconsCtrl HealthIconsCtrl => healthIconsCtrl;
@@ -31,6 +33,9 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     [Required]
     [SerializeField] private RecipeList recipeList;
+
+    //[Required]
+    //[SerializeField] private ScoreUI scoreUI;
 
     [Required]
     [SerializeField] private TextMeshProUGUI scoreAmount;

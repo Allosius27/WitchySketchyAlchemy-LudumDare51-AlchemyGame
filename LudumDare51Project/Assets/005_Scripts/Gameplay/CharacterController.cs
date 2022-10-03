@@ -1,3 +1,4 @@
+using AllosiusDevCore;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class CharacterController : MonoBehaviour
     private Sprite defaultHatSprite;
     private Sprite defaultHeadSprite;
     private Sprite defaultHairSprite;
+
+    private FeedbacksReader feedbacksReader;
 
     #endregion
 
@@ -45,6 +48,12 @@ public class CharacterController : MonoBehaviour
     [Required]
     [SerializeField] private GameObject potionObj;
 
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksPlayerDrink;
+
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksPlayerShapeShifting;
+
     #endregion
 
     #region Behaviour
@@ -57,6 +66,8 @@ public class CharacterController : MonoBehaviour
         defaultHatSprite = humanHatSprite.sprite;
         defaultHeadSprite = humanHeadSprite.sprite;
         defaultHairSprite = humanHairSprite.sprite;
+
+        feedbacksReader = GetComponent<FeedbacksReader>();
     }
 
     private void Start()
@@ -69,10 +80,17 @@ public class CharacterController : MonoBehaviour
         anim.SetTrigger("isWrong");
     }
 
+    public void ShapeShifting()
+    {
+        feedbacksReader.ReadFeedback(feedbacksPlayerShapeShifting);
+    }
+
     public void Drink()
     {
         potionObj.SetActive(true);
         anim.SetTrigger("isRight");
+
+        feedbacksReader.ReadFeedback(feedbacksPlayerDrink);
     }
 
     public void Die()

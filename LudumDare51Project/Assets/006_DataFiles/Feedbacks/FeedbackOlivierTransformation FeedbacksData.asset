@@ -74,3 +74,55 @@ MonoBehaviour:
       humanHatSprite: {fileID: 6828723679953059991, guid: 59b1ba2aef5bd4344a0a91734582e19e, type: 3}
       humanHeadSprite: {fileID: 8518109541437620936, guid: 59b1ba2aef5bd4344a0a91734582e19e, type: 3}
       humanHairSprite: {fileID: 0}
+  - Type: 3
+    feedbackWait:
+      IsActive: 1
+      waitTime: 0
+    feedbackPlaySound:
+      IsActive: 1
+      audioData: {fileID: 0}
+    feedbackInstantiateObject:
+      IsActive: 1
+      objectToInstantiate: {fileID: 2558816818856745345, guid: 68af839326224214a9ad9e3536934d37, type: 3}
+      objectPositionOffset: {x: 0, y: 3, z: 0}
+    feedbackChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+    feedbackTimerChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      colorChangeDuration: 0.1
+    feedbackSwitchHumanForm:
+      IsActive: 1
+      humanBodySprite: {fileID: 0}
+      humanLegsSprite: {fileID: 0}
+      humanArmsSprite: {fileID: 0}
+      humanHatSprite: {fileID: 0}
+      humanHeadSprite: {fileID: 0}
+      humanHairSprite: {fileID: 0}
+  - Type: 2
+    feedbackWait:
+      IsActive: 1
+      waitTime: 0
+    feedbackPlaySound:
+      IsActive: 1
+      audioData: {fileID: 11400000, guid: 4c9ac46dc53558242b62451939769089, type: 2}
+    feedbackInstantiateObject:
+      IsActive: 1
+      objectToInstantiate: {fileID: 0}
+      objectPositionOffset: {x: 0, y: 0, z: 0}
+    feedbackChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+    feedbackTimerChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      colorChangeDuration: 0.1
+    feedbackSwitchHumanForm:
+      IsActive: 1
+      humanBodySprite: {fileID: 0}
+      humanLegsSprite: {fileID: 0}
+      humanArmsSprite: {fileID: 0}
+      humanHatSprite: {fileID: 0}
+      humanHeadSprite: {fileID: 0}
+      humanHairSprite: {fileID: 0}

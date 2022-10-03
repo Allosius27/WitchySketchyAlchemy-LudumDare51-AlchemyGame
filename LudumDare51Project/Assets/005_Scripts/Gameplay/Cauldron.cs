@@ -77,7 +77,18 @@ public class Cauldron : MonoBehaviour
         Debug.Log(collision.gameObject.name);
 
         IngredientSlot ingredientSlot = collision.gameObject.GetComponent<IngredientSlot>();
-        if(ingredientSlot != null && ingredientSlot.Draggable.dragging && ingredientSlot.IsStocked == false && slotsStocked.Contains(ingredientSlot) == false)
+
+        bool checkTaken = true;
+
+        for (int i = 0; i < slotsCauldron.Count; i++)
+        {
+            if (slotsCauldron[i].IsTaken == false)
+            {
+                checkTaken = false;
+            }
+        }
+
+        if( checkTaken == false && ingredientSlot != null && ingredientSlot.Draggable.dragging && ingredientSlot.IsStocked == false && slotsStocked.Contains(ingredientSlot) == false)
         {
             IngredientSlot slot = Instantiate(ingredientSlotPrefab);
             slot.transform.position = transform.position + new Vector3(Random.Range(0, 0.3f), Random.Range(0, 0.3f), 0);

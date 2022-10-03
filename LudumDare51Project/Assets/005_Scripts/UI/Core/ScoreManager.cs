@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using AllosiusDevCore;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
@@ -11,6 +12,8 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private int currentScore;
     private RecipeData recipedate;
+
+    private FeedbacksReader feedbacksReader;
 
     #endregion
 
@@ -30,6 +33,9 @@ public class ScoreManager : Singleton<ScoreManager>
     public int GetPoints = 50;
     public int GetMalus = 300;
 
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksAddScore;
+
     #endregion
 
     #region Behaviour
@@ -37,6 +43,8 @@ public class ScoreManager : Singleton<ScoreManager>
     protected override void Awake()
     {
         base.Awake();
+
+        feedbacksReader = GetComponent<FeedbacksReader>();
     }
 
     private void Start()
@@ -54,6 +62,8 @@ public class ScoreManager : Singleton<ScoreManager>
         currentScore += pointsModifiers;
         Debug.Log(pointsModifiers);
         GameCanvasManager.Instance.UpdateScoreAmount(currentScore);
+
+        feedbacksReader.ReadFeedback(feedbacksAddScore);
 
         if (currentScore > 0)
         {
