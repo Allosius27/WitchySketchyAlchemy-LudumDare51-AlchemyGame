@@ -22,6 +22,32 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   feedbacks:
+  - Type: 1
+    feedbackWait:
+      IsActive: 1
+      waitTime: 0.5
+    feedbackPlaySound:
+      IsActive: 1
+      audioData: {fileID: 0}
+    feedbackInstantiateObject:
+      IsActive: 1
+      objectToInstantiate: {fileID: 0}
+      objectPositionOffset: {x: 0, y: 0, z: 0}
+    feedbackChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+    feedbackTimerChangeColorSprite:
+      IsActive: 1
+      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      colorChangeDuration: 0.1
+    feedbackSwitchHumanForm:
+      IsActive: 1
+      humanBodySprite: {fileID: 0}
+      humanLegsSprite: {fileID: 0}
+      humanArmsSprite: {fileID: 0}
+      humanHatSprite: {fileID: 0}
+      humanHeadSprite: {fileID: 0}
+      humanHairSprite: {fileID: 0}
   - Type: 6
     feedbackWait:
       IsActive: 1

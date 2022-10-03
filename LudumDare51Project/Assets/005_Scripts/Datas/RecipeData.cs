@@ -11,7 +11,7 @@ public class RecipeData : ScriptableObject
 
     [SerializeField] public string recipeName;
 
-    [SerializeField] public IngredientData[] ingredientsRequired;
+    [SerializeField] public List<IngredientData> ingredientsRequired = new List<IngredientData>(); 
 
     //[SerializeField] public TypeRecipe typeRecipe;
 

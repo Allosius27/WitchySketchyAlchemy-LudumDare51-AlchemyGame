@@ -39,7 +39,7 @@ public class RecipeItem : MonoBehaviour
 
         for (int i = 0; i < ingredientsRequiredIcons.Length; i++)
         {
-            if(i < recipeDataAssociated.ingredientsRequired.Length)
+            if(i < recipeDataAssociated.ingredientsRequired.Count)
             {
                 ingredientsRequiredIcons[i].gameObject.SetActive(true);
                 ingredientsRequiredIcons[i].sprite = recipeDataAssociated.ingredientsRequired[i].ingredientSprite;

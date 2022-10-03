@@ -224,18 +224,25 @@ public class GameCore : Singleton<GameCore>
     {
         for (int i = 0; i < activeRecipes.Count; i++)
         {
-            if (activeRecipes[i] != null && activeRecipes[i].ingredientsRequired.Length == cauldron.CurrentIngredients.Count)
+            if (activeRecipes[i] != null && activeRecipes[i].ingredientsRequired.Count == cauldron.CurrentIngredients.Count)
             {
                 bool check = true;
 
-                for (int j = 0; j < activeRecipes[i].ingredientsRequired.Length; j++)
+                for (int j = 0; j < activeRecipes[i].ingredientsRequired.Count; j++)
                 {
-                    if (cauldron.CurrentIngredients[j].IngredientDataAssociated != activeRecipes[i].ingredientsRequired[j])
+                    if(activeRecipes[i].ingredientsRequired.Contains(cauldron.CurrentIngredients[j].IngredientDataAssociated) == false)
                     {
                         Debug.Log("false");
                         check = false;
                         break;
                     }
+
+                    /*if (cauldron.CurrentIngredients[j].IngredientDataAssociated != activeRecipes[i].ingredientsRequired[j])
+                    {
+                        Debug.Log("false");
+                        check = false;
+                        break;
+                    }*/
                 }
 
                 if(check)
@@ -265,7 +272,7 @@ public class GameCore : Singleton<GameCore>
             if(currentRecipeChecked == currentBonusRecipe)
             {
                 // Add Score
-                ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsBonus, currentRecipeChecked.ingredientsRequired.Length);
+                ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsBonus, currentRecipeChecked.ingredientsRequired.Count);
                 feedbacksReader.ReadFeedback(feedbackGetGoodPotion);
             }
             else if(currentBonusRecipe == currentMalusRecipe)
@@ -277,7 +284,7 @@ public class GameCore : Singleton<GameCore>
             }
             else
             {
-                ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsGained, currentRecipeChecked.ingredientsRequired.Length);
+                ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsGained, currentRecipeChecked.ingredientsRequired.Count);
                 feedbacksReader.ReadFeedback(feedbacksBasicPotionSuccess);
             }
 
@@ -359,7 +366,7 @@ public class GameCore : Singleton<GameCore>
         }
 
         List<IngredientData> tempIngredients = new List<IngredientData>();
-        for (int i = 0; i < currentBonusRecipe.ingredientsRequired.Length; i++)
+        for (int i = 0; i < currentBonusRecipe.ingredientsRequired.Count; i++)
         {
             if (currentBonusRecipe.ingredientsRequired[i].isPowder == false)
             {
@@ -379,7 +386,7 @@ public class GameCore : Singleton<GameCore>
             }
             
         }
-        for (int i = currentBonusRecipe.ingredientsRequired.Length; i < ingredientsSlots.Count; i++)
+        for (int i = currentBonusRecipe.ingredientsRequired.Count; i < ingredientsSlots.Count; i++)
         {
             IngredientData ingredient = null;
             int count = 0;
