@@ -199,6 +199,10 @@ public class GameCore : Singleton<GameCore>
         GameCanvasManager.Instance.UpdateMaxTimerBar(roundTimer);
         gameInitialized = true;
         currentTimer = 0.0f;
+
+        int healthCount = membersAvailables.Count;
+        Debug.Log(healthCount);
+        GameCanvasManager.Instance.HealthIconsCtrl.SetHealthIconsStates(healthCount);
     }
 
     public void CheckGoodPotion()
@@ -218,6 +222,13 @@ public class GameCore : Singleton<GameCore>
             SetCurrentRecipe();
             currentTimer = 0.0f;
         }
+
+        GetMemberAvailables();
+        GetMemberTransformed();
+
+        int healthCount = membersAvailables.Count;
+        Debug.Log(healthCount);
+        GameCanvasManager.Instance.HealthIconsCtrl.SetHealthIconsStates(healthCount);
     }
 
     public bool MixIngredients()
@@ -480,6 +491,8 @@ public class GameCore : Singleton<GameCore>
 
     private void GetMemberAvailables()
     {
+        membersAvailables.Clear();
+
         if (characterController.headSlot.NaturalState && membersAvailables.Contains(characterController.headSlot) == false)
         {
             membersAvailables.Add(characterController.headSlot);
@@ -503,6 +516,8 @@ public class GameCore : Singleton<GameCore>
 
     private void GetMemberTransformed()
     {
+        memberTransformed.Clear();
+
         if (!characterController.headSlot.NaturalState && memberTransformed.Contains(characterController.headSlot) == false)
         {
             memberTransformed.Add(characterController.headSlot);

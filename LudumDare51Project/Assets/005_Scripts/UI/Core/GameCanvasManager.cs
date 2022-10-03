@@ -18,6 +18,8 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     public DialogueDisplayUI DialogUI => dialogUI;
 
+    public HealthIconsCtrl HealthIconsCtrl => healthIconsCtrl;
+
     #endregion
 
     #region UnityInspector
@@ -33,6 +35,9 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     [Required]
     [SerializeField] private DialogueDisplayUI dialogUI;
+
+    [Required]
+    [SerializeField] private HealthIconsCtrl healthIconsCtrl;
 
     [Required]
     [SerializeField] private PageController pageController;
