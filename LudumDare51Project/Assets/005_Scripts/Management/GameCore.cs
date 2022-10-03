@@ -104,6 +104,12 @@ public class GameCore : Singleton<GameCore>
     [Required]
     [SerializeField] private FeedbacksData feedbacksGameOver;
 
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksFailedPotion;
+
+    [Required]
+    [SerializeField] private FeedbacksData feedbacksPlayerShapeShifting;
+
 
     #endregion
 
@@ -206,6 +212,8 @@ public class GameCore : Singleton<GameCore>
         {
             Debug.Log("Wrong Potion");
 
+            feedbacksReader.ReadFeedback(feedbacksFailedPotion);
+
             ShapeShifting();
             SetCurrentRecipe();
             currentTimer = 0.0f;
@@ -275,6 +283,11 @@ public class GameCore : Singleton<GameCore>
 
             characterController.Drink();
 
+            if(currentRecipeChecked.hasSpecialEffect)
+            {
+                feedbacksReader.ReadFeedback(currentRecipeChecked.feedbacksSpecialEffectActivation);
+            }
+
             SetCurrentRecipe();
             currentTimer = 0.0f;
 
@@ -315,6 +328,8 @@ public class GameCore : Singleton<GameCore>
 
             GetMemberAvailables();
             GetMemberTransformed();
+
+            feedbacksReader.ReadFeedback(feedbacksPlayerShapeShifting);
 
             if (characterController.CheckStateCharacter() == false)
             {

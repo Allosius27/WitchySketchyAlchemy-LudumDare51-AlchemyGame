@@ -1,6 +1,8 @@
+using AllosiusDevCore;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 [CreateAssetMenu(fileName = "New RecipeData", menuName = "RecipeData")]
 public class RecipeData : ScriptableObject
@@ -15,6 +17,9 @@ public class RecipeData : ScriptableObject
 
     [SerializeField] public bool hasSpecialEffect;
     //Define Effect
+    [ShowIfGroup("hasSpecialEffect")]
+    [Required]
+    [SerializeField] public FeedbacksData feedbacksSpecialEffectActivation;
 
     //[SerializeField] public bool hasNegativeEffect;
     //Define Effect
