@@ -1,5 +1,6 @@
 ﻿using AllosiusDevCore.DialogSystem;
 using AllosiusDevCore.QuestSystem;
+using AllosiusDevUtilities.Audio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -52,6 +53,10 @@ namespace AllosiusDevCore
                         {
                             //item.ExecuteCreateBoxMessage();
                         }
+                        else if (item.actionType == ActionType.PlaySound)
+                        {
+                            item.PlayAudioData();
+                        }
                     }
                 }
 
@@ -98,6 +103,10 @@ namespace AllosiusDevCore
         [Header("Create Box Message Properties")]
         [SerializeField] public string boxMessageTextToDisplay;
         [SerializeField] public float boxMessageSize;
+
+        [Space]
+        [Header("Play Audio Data Properties")]
+        [SerializeField] public AudioData soundToPlay;
 
         #endregion
 
@@ -173,6 +182,11 @@ namespace AllosiusDevCore
             GameManager.Instance.gameCanvasManager.CreateMessageBox(boxMessageTextToDisplay, boxMessageSize);
         }*/
 
+        public void PlayAudioData()
+        {
+            AudioController.Instance.PlayAudio(soundToPlay);
+        }
+
         #endregion
     }
 }
@@ -186,5 +200,6 @@ namespace AllosiusDevCore
         CompleteQuestStep,
         LaunchDialogue,
         CreateBoxMessage,
+        PlaySound,
     }
 }

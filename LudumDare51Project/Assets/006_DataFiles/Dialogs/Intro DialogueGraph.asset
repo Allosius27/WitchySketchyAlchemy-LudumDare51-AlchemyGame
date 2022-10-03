@@ -46,15 +46,24 @@ MonoBehaviour:
   texteType: 0
   keyText: Uh-Oh ! You cast the wrong spell again, Mistress ! It looks like a part
     of your body will transform into a monster's every 10 seconds !
-  messagePreview: 'Uh-Oh ! You cast the wrong spell again, Mistress !
-
-    It looks
-    like a part of your body will transform into a monster''s every 10 seconds !'
+  messagePreview: Uh-Oh ! You cast the wrong spell again, Mistress ! It looks like
+    a part of your body will transform into a monster's every 10 seconds !
   singleRead: 0
-  hasEnterNodeActions: 0
-  showEnterNodeActions: 0
+  hasEnterNodeActions: 1
+  showEnterNodeActions: 1
   enterNodeActions:
-    actionsList: []
+    actionsList:
+    - actionType: 5
+      hasCondition: 0
+      nodesRequiredToRead: []
+      questToAdd: {fileID: 0}
+      questAssociated: {fileID: 0}
+      questStepToComplete: {fileID: 0}
+      dialogueToLaunch: {fileID: 0}
+      launchDialogueToMainNode: 0
+      boxMessageTextToDisplay: 
+      boxMessageSize: 0
+      soundToPlay: {fileID: 11400000, guid: 69e5c0c27d17ae34f98ed840906265e3, type: 2}
   hasGameActions: 0
   showGameActions: 0
   gameActions:
@@ -132,16 +141,25 @@ MonoBehaviour:
   keyText: Quick ! Brew potions from your recipe book, before you transform entirely
     into a freak ! Careful though, some potions may have some side effects, desired
     or not
-  messagePreview: 'Quick ! Brew potions from your recipe book, before you transform
-    entirely into a freak !
-
-    Careful though, some potions may have some side
-    effects, desired or not'
+  messagePreview: Quick ! Brew potions from your recipe book, before you transform
+    entirely into a freak ! Careful though, some potions may have some side effects,
+    desired or not
   singleRead: 0
-  hasEnterNodeActions: 0
-  showEnterNodeActions: 0
+  hasEnterNodeActions: 1
+  showEnterNodeActions: 1
   enterNodeActions:
-    actionsList: []
+    actionsList:
+    - actionType: 5
+      hasCondition: 0
+      nodesRequiredToRead: []
+      questToAdd: {fileID: 0}
+      questAssociated: {fileID: 0}
+      questStepToComplete: {fileID: 0}
+      dialogueToLaunch: {fileID: 0}
+      launchDialogueToMainNode: 0
+      boxMessageTextToDisplay: 
+      boxMessageSize: 0
+      soundToPlay: {fileID: 11400000, guid: 5ea159669463d6a4ea8bac92206dbc63, type: 2}
   hasGameActions: 0
   showGameActions: 0
   gameActions:
@@ -196,13 +214,24 @@ MonoBehaviour:
   texteType: 0
   keyText: Drag the ingredients and drop them in the cauldron . If you need powder,
     crush the right-colored ingredient in the mortar.
-  messagePreview: "Drag the ingredients and drop them in the cauldron\r.\nIf you
-    need powder, crush the right-colored ingredient in the mortar."
+  messagePreview: Drag the ingredients and drop them in the cauldron . If you need
+    powder, crush the right-colored ingredient in the mortar.
   singleRead: 0
-  hasEnterNodeActions: 0
-  showEnterNodeActions: 0
+  hasEnterNodeActions: 1
+  showEnterNodeActions: 1
   enterNodeActions:
-    actionsList: []
+    actionsList:
+    - actionType: 5
+      hasCondition: 0
+      nodesRequiredToRead: []
+      questToAdd: {fileID: 0}
+      questAssociated: {fileID: 0}
+      questStepToComplete: {fileID: 0}
+      dialogueToLaunch: {fileID: 0}
+      launchDialogueToMainNode: 0
+      boxMessageTextToDisplay: 
+      boxMessageSize: 0
+      soundToPlay: {fileID: 11400000, guid: da23393fb2b8548469123ef3812e6c03, type: 2}
   hasGameActions: 0
   showGameActions: 0
   gameActions:

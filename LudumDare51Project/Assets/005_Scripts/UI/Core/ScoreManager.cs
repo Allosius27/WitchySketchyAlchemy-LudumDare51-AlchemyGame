@@ -23,6 +23,15 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public int CurrentScore => currentScore;
 
+    public PopUpText PopUpPerfectText => popUpPerfectText;
+    public string PerfectLabel => perfectLabel;
+
+    public PopUpText PopUpGreatText => popUpGreatText;
+    public string GreatLabel => greatLabel;
+
+    public PopUpText PopUpSideEffectText => popUpSideEffectText;
+    public string SideEffectLabel => sideEffectLabel;
+
     #endregion
 
     #region UnityInspector
@@ -32,6 +41,25 @@ public class ScoreManager : Singleton<ScoreManager>
     //public GameObject ParentUI;
     public int GetPoints = 50;
     public int GetMalus = 300;
+
+    [Required]
+    [SerializeField] private PopUpText popUpPerfectText;
+
+    [Required]
+    [SerializeField] private string perfectLabel;
+
+    [Required]
+    [SerializeField] private PopUpText popUpGreatText;
+
+    [Required]
+    [SerializeField] private string greatLabel;
+
+    [Required]
+    [SerializeField] private PopUpText popUpSideEffectText;
+
+    [Required]
+    [SerializeField] private string sideEffectLabel;
+
 
     [Required]
     [SerializeField] private FeedbacksData feedbacksAddScore;

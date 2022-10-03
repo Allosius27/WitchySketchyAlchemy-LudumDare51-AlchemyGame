@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6151fd00d781a7a46a8d4399e32151bc, type: 3}
   m_Name: Failed_potionSfx AudioData
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: eacb5cba486feea4a96e2e0b39a94229, type: 3}
+  clip: {fileID: 8300000, guid: 8e8f47f0006b37c4aa19bed932649f50, type: 3}
   typeSound: 0
   pitch: 1
   loop: 0

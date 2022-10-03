@@ -12,6 +12,12 @@ using AllosiusDevUtilities.Audio;
 
 public class GameCanvasManager : Singleton<GameCanvasManager>
 {
+    #region Fields
+
+    private IEnumerator gameOverCoroutine;
+
+    #endregion
+
     #region Properties
 
     public RecipeList RecipeList => recipeList;
@@ -23,6 +29,7 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
     public HealthIconsCtrl HealthIconsCtrl => healthIconsCtrl;
 
     public Transform ScorePoint => scorePoint;
+    public Transform SuccessTypeTextPoint => successTypeTextPoint;
 
     #endregion
 
@@ -42,6 +49,9 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     [Required]
     [SerializeField] private Transform scorePoint;
+
+    [Required]
+    [SerializeField] private Transform successTypeTextPoint;
 
     [Required]
     [SerializeField] private DialogueDisplayUI dialogUI;
@@ -108,7 +118,14 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
     {
         pageController.TurnPageOn(gameOverPage);
 
-        StartCoroutine(CoroutineGameOver());
+        if(gameOverCoroutine != null)
+        {
+            StopCoroutine(gameOverCoroutine);
+        }
+
+        gameOverCoroutine = CoroutineGameOver();
+
+        StartCoroutine(gameOverCoroutine);
     }
 
     private IEnumerator CoroutineGameOver()
@@ -134,6 +151,11 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     public void ReturnMainMenu()
     {
+        if (gameOverCoroutine != null)
+        {
+            StopCoroutine(gameOverCoroutine);
+        }
+
         Time.timeScale = 1;
 
         GameStateManager.gameIsPaused = false;

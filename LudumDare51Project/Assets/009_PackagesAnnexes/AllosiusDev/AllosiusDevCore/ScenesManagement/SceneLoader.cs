@@ -91,7 +91,7 @@ namespace AllosiusDevCore
                     AudioController.Instance.StopAllMusics();
                     
                     operation.allowSceneActivation = false;
-                    yield return new WaitForSeconds(3f);
+                    yield return new WaitForSeconds(0.5f);
                     operation.allowSceneActivation = true;
                 }
 

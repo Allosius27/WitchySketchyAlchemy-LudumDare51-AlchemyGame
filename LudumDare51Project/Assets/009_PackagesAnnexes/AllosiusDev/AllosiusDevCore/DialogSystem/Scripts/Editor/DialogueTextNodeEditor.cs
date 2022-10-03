@@ -8,6 +8,7 @@ using XNode;
 using UnityEditor.SceneManagement;
 using AllosiusDevCore.QuestSystem;
 using AllosiusDevCore.TranslationSystem;
+using AllosiusDevUtilities.Audio;
 
 namespace AllosiusDevCore.DialogSystem
 {
@@ -254,6 +255,11 @@ namespace AllosiusDevCore.DialogSystem
                         {
                             action.boxMessageTextToDisplay = EditorGUILayout.TextField("Box Message Text To Display", action.boxMessageTextToDisplay);
                             action.boxMessageSize = EditorGUILayout.FloatField("Box Message Size", action.boxMessageSize);
+                            break;
+                        }
+                    case ActionType.PlaySound:
+                        {
+                            action.soundToPlay = (AudioData)EditorGUILayout.ObjectField("Sound To Play", action.soundToPlay, typeof(AudioData), true);
                             break;
                         }
 

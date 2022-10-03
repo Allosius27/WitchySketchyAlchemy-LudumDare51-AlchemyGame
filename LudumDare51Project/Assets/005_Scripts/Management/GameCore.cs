@@ -282,18 +282,30 @@ public class GameCore : Singleton<GameCore>
                 // Add Score
                 ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsBonus, currentRecipeChecked.ingredientsRequired.Count);
                 feedbacksReader.ReadFeedback(feedbackGetGoodPotion);
+
+                var myNewScore = Instantiate(ScoreManager.Instance.PopUpPerfectText, GameCanvasManager.Instance.SuccessTypeTextPoint.position, Quaternion.identity);
+                myNewScore.transform.parent = GameCanvasManager.Instance.transform;
+                myNewScore.GetComponent<PopUpText>().SetText(ScoreManager.Instance.PerfectLabel);
             }
             else if(currentRecipeChecked == currentMalusRecipe)
             {
                 // Remove Score
                 ScoreManager.Instance.SetMalus(currentRecipeChecked.scorePointsLost);
                 feedbacksReader.ReadFeedback(feedbacksGetBadPotion);
-                
+
+                var myNewScore = Instantiate(ScoreManager.Instance.PopUpSideEffectText, GameCanvasManager.Instance.SuccessTypeTextPoint.position, Quaternion.identity);
+                myNewScore.transform.parent = GameCanvasManager.Instance.transform;
+                myNewScore.GetComponent<PopUpText>().SetText(ScoreManager.Instance.SideEffectLabel);
+
             }
             else
             {
                 ScoreManager.Instance.SetCurrentScore(currentRecipeChecked.scorePointsGained, currentRecipeChecked.ingredientsRequired.Count);
                 feedbacksReader.ReadFeedback(feedbacksBasicPotionSuccess);
+
+                var myNewScore = Instantiate(ScoreManager.Instance.PopUpGreatText, GameCanvasManager.Instance.SuccessTypeTextPoint.position, Quaternion.identity);
+                myNewScore.transform.parent = GameCanvasManager.Instance.transform;
+                myNewScore.GetComponent<PopUpText>().SetText(ScoreManager.Instance.GreatLabel);
             }
 
             characterController.Drink();

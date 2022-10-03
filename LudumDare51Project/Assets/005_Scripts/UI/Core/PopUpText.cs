@@ -38,4 +38,12 @@ public class PopUpText : MonoBehaviour
         
         transform.position += new Vector3(Random.Range(-placementJitter, placementJitter), Random.Range(-placementJitter, placementJitter), 0f);
     }
+
+    public void SetText(string text)
+    {
+        pointsText.text = text.ToString();
+
+
+        transform.position += new Vector3(Random.Range(-placementJitter, placementJitter), Random.Range(-placementJitter, placementJitter), 0f);
+    }
 }
