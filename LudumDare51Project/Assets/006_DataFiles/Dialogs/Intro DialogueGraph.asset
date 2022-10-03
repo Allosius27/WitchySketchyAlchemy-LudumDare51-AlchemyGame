@@ -130,13 +130,11 @@ MonoBehaviour:
   identityType: 0
   texteType: 0
   keyText: Quick ! Make potions from your recipe book, by respecting ingredients
-    order, before you transform entirely into a freak ! Careful though, some potions
-    may have some good side effects, desired or not
-  messagePreview: 'Quick ! Make potions from your recipe book, by respecting ingredients
-    order, before you transform entirely into a freak !
-
-    Careful though, some
-    potions may have some good side effects, desired or not'
+    order, before you transform entirely into a freak !                                                  
+    Careful though, some potions may have some good side effects, desired or not
+  messagePreview: Quick ! Make potions from your recipe book, by respecting ingredients
+    order, before you transform entirely into a freak !                                                  
+    Careful though, some potions may have some good side effects, desired or not
   singleRead: 0
   hasEnterNodeActions: 0
   showEnterNodeActions: 0

@@ -82,12 +82,11 @@ public class ScoreManager : Singleton<ScoreManager>
         GameCanvasManager.Instance.UpdateScoreAmount(currentScore);
 
 
-        if (currentScore > 0)
-        {
+        
             var myNewMalus = Instantiate(MalusFeedback, GameCanvasManager.Instance.ScorePoint.position, Quaternion.identity);
             myNewMalus.transform.parent = GameCanvasManager.Instance.transform;
             myNewMalus.GetComponent<PopUpText>().SetPoints(-pointsModifiers);
-        }
+        
     }
 
     #endregion
