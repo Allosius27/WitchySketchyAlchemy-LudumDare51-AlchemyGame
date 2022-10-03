@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System;
+using AllosiusDevCore.Game;
 
 namespace AllosiusDevCore
 {
@@ -68,6 +69,19 @@ namespace AllosiusDevCore
             Feedback feedback = new Feedback();
             feedback.Type = Feedback.FeedbackType.TimerChangeColorSprite;
             feedback.IsFeedbackTimerChangeColorSprite = true;
+            feedback.Initialized = true;
+            feedbacks.Add(feedback);
+        }
+
+        [TabGroup("GameObject")]
+        [GUIColor(1, 0, 0)]
+        [Button(ButtonSizes.Medium)]
+        [ShowInInspector, PropertySpace]
+        public void AddFeedbackSwitchHumanForm()
+        {
+            Feedback feedback = new Feedback();
+            feedback.Type = Feedback.FeedbackType.SwitchHumanForm;
+            feedback.IsFeedbackSwitchHumanForm = true;
             feedback.Initialized = true;
             feedbacks.Add(feedback);
         }
@@ -140,6 +154,18 @@ namespace AllosiusDevCore
 
                 return item.feedbackTimerChangeColorSprite;
             }
+            else if (item.Type == Feedback.FeedbackType.SwitchHumanForm)
+            {
+                if (item.Initialized == false)
+                {
+                    Debug.Log("OnBeforeSerialize");
+
+                    item.IsFeedbackSwitchHumanForm = true;
+                    item.Initialized = true;
+                }
+
+                return item.feedbackSwitchHumanForm;
+            }
 
             return null;
         }
@@ -181,6 +207,8 @@ namespace AllosiusDevCore
             InstantiateObject,
             ChangeColorSprite,
             TimerChangeColorSprite,
+
+            SwitchHumanForm,
         }
         public FeedbackType Type;
 
@@ -216,6 +244,12 @@ namespace AllosiusDevCore
         [BoxGroup("IsFeedbackTimerChangeColorSprite/Feedback Timer Change Color Sprite")]
         [GUIColor(1, 0, 0)]
         public FeedbackTimerChangeColorSprite feedbackTimerChangeColorSprite;
+
+        public bool IsFeedbackSwitchHumanForm { get; set; }
+        [ShowIfGroup("IsFeedbackSwitchHumanForm")]
+        [BoxGroup("IsFeedbackSwitchHumanForm/Feedback Switch Human Form")]
+        [GUIColor(1, 0, 0)]
+        public FeedbackSwitchHumanForm feedbackSwitchHumanForm;
 
     }
 }

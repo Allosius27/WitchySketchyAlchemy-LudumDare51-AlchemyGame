@@ -45,7 +45,7 @@ public class GameCore : Singleton<GameCore>
 
     public SceneData CurrentSceneData => currentSceneData;
 
-
+    public CharacterController CharacterController => characterController;
     public Cauldron Cauldron => cauldron;
     public Mortar Mortar => mortar;
 
